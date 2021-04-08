@@ -1,19 +1,18 @@
-#include "variant.h"
+#include <variant.h>
 
-class _declspec(dllimport) Variant::Application;
 
-	class SandBox : public Variant::Application
-	{ 
-	public:
-		SandBox()
-		{
+class SandBox : public Variant::Application
+{
+public:
+	SandBox()
+	{
 
-		}
-		~SandBox()
-		{
+	}
+	~SandBox()
+	{
 
-		}
-	};
+	}
+};
 
 
 Variant::Application* Variant::CreateApplication()

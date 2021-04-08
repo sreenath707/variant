@@ -1,8 +1,9 @@
 #pragma once
+#include "core.h"
 
 namespace Variant {
 
-	class  __declspec(dllexport) Application
+	class VR_API Application
 	{
 	public:
 		Application();
