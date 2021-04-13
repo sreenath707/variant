@@ -1,7 +1,7 @@
 #pragma once
+#include "vrpch.h"
 #include "spdlog/spdlog.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
-#include<memory>
 #include "core.h"
 
 namespace Variant {

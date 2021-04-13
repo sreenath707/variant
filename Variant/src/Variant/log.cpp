@@ -1,3 +1,4 @@
+#include "vrpch.h"
 #include "log.h"
 
 namespace Variant {

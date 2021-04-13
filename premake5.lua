@@ -57,6 +57,9 @@ project "Variant"
         "VR_WINDOWS"
       }
 
+      pchheader "vrpch.h"
+      pchsource "Variant/src/vrpch.cpp"
+
 
     filter "configurations:Debug"
         defines
