@@ -10,6 +10,11 @@ workspace "Variant"
 
 outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"  
 
+includeDirs ={}
+includeDirs["GLFW"] = "%{wks.location}/Variant/Vender/GLFW/include"
+
+include "Variant/Vender/GLFW"
+
 project "Variant"
    location "Variant"
    language "C++"
@@ -24,10 +29,16 @@ project "Variant"
        "%{prj.name}/src/**.h"
    }
 
+   links
+   {
+      "GLFW"
+   }
+
    includedirs
    {
       "%{wks.location}/Variant/Vender/spdlog/include",
-      "%{wks.location}/%{prj.name}/src"
+      "%{wks.location}/%{prj.name}/src",
+      "%{includeDirs.GLFW}"
    }
 
    postbuildcommands
