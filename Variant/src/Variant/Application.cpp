@@ -1,11 +1,12 @@
 #include "vrpch.h"
 #include "Application.h"
-#include "GLFW/glfw3.h"
+
+
 namespace Variant {
 
 	Application::Application()
 	{
-		glfwInit();
+		m_Window = (std::unique_ptr<Window>)Window::create();
 	}
 
 	Application::~Application()
@@ -16,7 +17,10 @@ namespace Variant {
 
 	void Application::run()
 	{
-	  
+		while (true)
+		{
+			m_Window->update();
+		}
 	}
 
 }

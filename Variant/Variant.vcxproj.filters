@@ -13,6 +13,9 @@
     <ClInclude Include="src\Variant\EntryPoint.h">
       <Filter>Variant</Filter>
     </ClInclude>
+    <ClInclude Include="src\Variant\Window.h">
+      <Filter>Variant</Filter>
+    </ClInclude>
     <ClInclude Include="src\Variant\core.h">
       <Filter>Variant</Filter>
     </ClInclude>
@@ -20,6 +23,7 @@
       <Filter>Variant</Filter>
     </ClInclude>
     <ClInclude Include="src\vrpch.h" />
+    <ClInclude Include="src\Platform\windowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Variant\Application.cpp">
@@ -29,5 +33,6 @@
       <Filter>Variant</Filter>
     </ClCompile>
     <ClCompile Include="src\vrpch.cpp" />
+    <ClCompile Include="src\Platform\windowsWindow.cpp" />
   </ItemGroup>
 </Project>

@@ -149,9 +149,11 @@
     <ClInclude Include="src\Variant.h" />
     <ClInclude Include="src\Variant\Application.h" />
     <ClInclude Include="src\Variant\EntryPoint.h" />
+    <ClInclude Include="src\Variant\Window.h" />
     <ClInclude Include="src\Variant\core.h" />
     <ClInclude Include="src\Variant\log.h" />
     <ClInclude Include="src\vrpch.h" />
+    <ClInclude Include="src\Platform\windowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Variant\Application.cpp" />
@@ -159,6 +161,7 @@
     <ClCompile Include="src\vrpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Platform\windowsWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Vender\GLFW\GLFW.vcxproj">

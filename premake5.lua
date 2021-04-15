@@ -101,7 +101,8 @@ project "SandBox"
    includedirs
    {
        "%{wks.location}/Variant/Vender/spdlog/include",  
-       "%{wks.location}/Variant/src"
+       "%{wks.location}/Variant/src",
+       "%{includeDirs.GLFW}"
    }
    
    links
