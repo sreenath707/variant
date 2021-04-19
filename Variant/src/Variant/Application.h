@@ -7,6 +7,7 @@ namespace Variant {
 
 	class VR_API Application
 	{
+		bool m_running;
 		std::unique_ptr<Window> m_Window;
 	public:
 		Application();
@@ -14,10 +15,11 @@ namespace Variant {
 		virtual ~Application();
 
 		void run();
+		void OnEvent(Event& e);
+		bool OnWindowClose(Event& e);
 
 	};
 
 	Application* CreateApplication();
-
 
 }

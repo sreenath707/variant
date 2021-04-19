@@ -1,3 +1,4 @@
+#include "..\..\Variant\src\Variant\Application.h"
 #include <variant.h>
 
 
@@ -19,4 +20,5 @@ Variant::Application* Variant::CreateApplication()
 {
 	return new SandBox();
 }
+
 
