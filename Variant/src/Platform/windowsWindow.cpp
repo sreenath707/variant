@@ -2,6 +2,7 @@
 #include "windowsWindow.h"
 #include "Variant/Events/keyEvent.h"
 #include "Variant/Events/ApplicationEvent.h"
+#include "Variant/Events/mouseEvent.h"
 
 namespace Variant {
 	void windowsWindow::isVsync()
@@ -87,7 +88,7 @@ namespace Variant {
 					}
 					case GLFW_RELEASE:
 					{
-						keyPressedEvent event(key, 0);
+						keyReleaseEvent event(key);
 						data.callback(event);
 						break;
 					}
@@ -104,6 +105,47 @@ namespace Variant {
 			{
 				windowData data = *(windowData*)glfwGetWindowUserPointer(window);
 				WindowCloseEvent event;
+				data.callback(event);
+			});
+		glfwSetWindowSizeCallback(m_window, [](GLFWwindow* window, int width, int height)
+			{
+				windowData data = *(windowData*)glfwGetWindowUserPointer(window);
+				data.width = width;
+				data.height = height;
+				WindowResizeEvent event(width, height);
+				data.callback(event);
+			});
+		glfwSetMouseButtonCallback(m_window, [](GLFWwindow* window, int button, int action, int mods)
+			{
+				windowData data = *(windowData*)glfwGetWindowUserPointer(window);
+				switch (action)
+				{
+					case GLFW_PRESS:
+					{
+						mouseClickEvent event(button);
+						data.callback(event);
+						break;
+					}
+					case GLFW_RELEASE:
+					{
+						mouseReleaseEvent event(button);
+						data.callback(event);
+						break;
+					}
+				    
+				}
+				
+			});
+		glfwSetCursorPosCallback(m_window, [](GLFWwindow* window, double xPos,double yPos) 
+			{
+				windowData data = *(windowData*)glfwGetWindowUserPointer(window);
+				mousePosEvent event(xPos, yPos);
+				data.callback(event);
+			});
+		glfwSetScrollCallback(m_window, [](GLFWwindow* window, double xOffset, double yOffset) 
+			{
+				windowData data = *(windowData*)glfwGetWindowUserPointer(window);
+				mouseScrollEvent event(xOffset, yOffset);
 				data.callback(event);
 			});
 	}

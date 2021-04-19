@@ -152,6 +152,7 @@
     <ClInclude Include="src\Variant\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Variant\Events\Event.h" />
     <ClInclude Include="src\Variant\Events\keyEvent.h" />
+    <ClInclude Include="src\Variant\Events\mouseEvent.h" />
     <ClInclude Include="src\Variant\Window.h" />
     <ClInclude Include="src\Variant\core.h" />
     <ClInclude Include="src\Variant\log.h" />

@@ -35,4 +35,19 @@ namespace Variant {
 		 static EventType StaticEventType() { return EventType::KeyPressed; }
 	};
 
+	class keyReleaseEvent :public keyEvent
+	{
+	public:
+		keyReleaseEvent(keycode code)
+		: keyEvent(code){}
+		std::string getName()override { return "keyRelease"; }
+		EventType getEventType()override { return EventType::KeyReleased; }
+		std::string ToString()override
+		{
+			std::stringstream ss;
+			ss << "key code : " << m_keycode;
+			return ss.str();
+		}
+		static EventType StaticEventType() { return EventType::KeyReleased; }
+	};
 }
