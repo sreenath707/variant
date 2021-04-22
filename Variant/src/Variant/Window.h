@@ -1,10 +1,10 @@
 #pragma once
 #include "vrpch.h"
+#include "glad/glad.h"
 #include "log.h"
 #include "GLFW/glfw3.h"
 #include "Events/Event.h"
 #include "Events/ApplicationEvent.h"
-#include "vrpch.h"
 
 namespace Variant {
 	using windowCallFn = std::function<void(Event&)>;

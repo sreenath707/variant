@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Variant">
       <UniqueIdentifier>{BA935ECA-2673-DD65-2F8B-683C9BE943C7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Variant\Events">
+      <UniqueIdentifier>{5E8A25F5-4A58-19FB-33EC-89211F59F55F}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\windowsWindow.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
     <ClInclude Include="src\Variant.h" />
     <ClInclude Include="src\Variant\Application.h">
       <Filter>Variant</Filter>
@@ -13,30 +22,48 @@
     <ClInclude Include="src\Variant\EntryPoint.h">
       <Filter>Variant</Filter>
     </ClInclude>
+    <ClInclude Include="src\Variant\Events\ApplicationEvent.h">
+      <Filter>Variant\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\Events\Event.h">
+      <Filter>Variant\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\Events\keyEvent.h">
+      <Filter>Variant\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\Events\mouseEvent.h">
+      <Filter>Variant\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Variant\Window.h">
       <Filter>Variant</Filter>
     </ClInclude>
     <ClInclude Include="src\Variant\core.h">
       <Filter>Variant</Filter>
     </ClInclude>
+    <ClInclude Include="src\Variant\layer.h">
+      <Filter>Variant</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\layerStack.h">
+      <Filter>Variant</Filter>
+    </ClInclude>
     <ClInclude Include="src\Variant\log.h">
       <Filter>Variant</Filter>
     </ClInclude>
     <ClInclude Include="src\vrpch.h" />
-    <ClInclude Include="src\Platform\windowsWindow.h" />
-    <ClInclude Include="src\Variant\Events\Event.h" />
-    <ClInclude Include="src\Variant\Events\ApplicationEvent.h" />
-    <ClInclude Include="src\Variant\Events\keyEvent.h" />
-    <ClInclude Include="src\Variant\Events\mouseEvent.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\windowsWindow.cpp">
+      <Filter>Platform</Filter>
+    </ClCompile>
     <ClCompile Include="src\Variant\Application.cpp">
+      <Filter>Variant</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Variant\layerStack.cpp">
       <Filter>Variant</Filter>
     </ClCompile>
     <ClCompile Include="src\Variant\log.cpp">
       <Filter>Variant</Filter>
     </ClCompile>
     <ClCompile Include="src\vrpch.cpp" />
-    <ClCompile Include="src\Platform\windowsWindow.cpp" />
   </ItemGroup>
 </Project>

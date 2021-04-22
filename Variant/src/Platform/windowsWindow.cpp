@@ -4,6 +4,7 @@
 #include "Variant/Events/ApplicationEvent.h"
 #include "Variant/Events/mouseEvent.h"
 
+
 namespace Variant {
 	void windowsWindow::isVsync()
 	{
@@ -70,6 +71,7 @@ namespace Variant {
 			glfwTerminate();
 		}
 		glfwMakeContextCurrent(m_window);
+		VR_ASSERT(gladLoadGLLoader((GLADloadproc)glfwGetProcAddress));
 		glfwSetWindowUserPointer(m_window, &m_data);
 		glfwSwapInterval(1);
 		VR_core_info("Window started!!");

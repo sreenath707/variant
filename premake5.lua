@@ -12,8 +12,11 @@ outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 includeDirs ={}
 includeDirs["GLFW"] = "%{wks.location}/Variant/Vender/GLFW/include"
+includeDirs["glad"] = "%{wks.location}/Variant/vender/glad/include"
+
 
 include "Variant/Vender/GLFW"
+include "Variant/Vender/glad"
 
 project "Variant"
    location "Variant"
@@ -31,14 +34,16 @@ project "Variant"
 
    links
    {
-      "GLFW"
+      "GLFW",
+      "glad"
    }
 
    includedirs
    {
       "%{wks.location}/Variant/Vender/spdlog/include",
       "%{wks.location}/%{prj.name}/src",
-      "%{includeDirs.GLFW}"
+      "%{includeDirs.GLFW}",
+      "%{includeDirs.glad}"
    }
 
    postbuildcommands
@@ -54,7 +59,8 @@ project "Variant"
       defines
       {
         "VR_DLL",
-        "VR_WINDOWS"
+        "VR_WINDOWS",
+        "GLFW_INCLUDE_NONE"
       }
 
       pchheader "vrpch.h"
@@ -102,7 +108,8 @@ project "SandBox"
    {
        "%{wks.location}/Variant/Vender/spdlog/include",  
        "%{wks.location}/Variant/src",
-       "%{includeDirs.GLFW}"
+       "%{includeDirs.GLFW}",
+       "%{includeDirs.glad}"
    }
    
    links

@@ -1,7 +1,8 @@
 #pragma once
 #include "core.h"
-#include "GLFW/glfw3.h"
 #include "Window.h"
+#include "layerStack.h"
+
 
 namespace Variant {
 
@@ -9,6 +10,8 @@ namespace Variant {
 	{
 		bool m_running;
 		std::unique_ptr<Window> m_Window;
+		layerStack m_layerstack;
+		
 	public:
 		Application();
 
@@ -17,6 +20,8 @@ namespace Variant {
 		void run();
 		void OnEvent(Event& e);
 		bool OnWindowClose(Event& e);
+		void pushLayer(layer* layer);
+		void popLayer(layer* layer);
 
 	};
 

@@ -79,8 +79,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>vrpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>VR_DLL;VR_WINDOWS;VR_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>Vender\spdlog\include;src;Vender\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>VR_DLL;VR_WINDOWS;GLFW_INCLUDE_NONE;VR_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>Vender\spdlog\include;src;Vender\GLFW\include;vender\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -100,8 +100,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>vrpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>VR_DLL;VR_WINDOWS;VR_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>Vender\spdlog\include;src;Vender\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>VR_DLL;VR_WINDOWS;GLFW_INCLUDE_NONE;VR_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>Vender\spdlog\include;src;Vender\GLFW\include;vender\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -125,8 +125,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>vrpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>VR_DLL;VR_WINDOWS;VR_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>Vender\spdlog\include;src;Vender\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>VR_DLL;VR_WINDOWS;GLFW_INCLUDE_NONE;VR_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>Vender\spdlog\include;src;Vender\GLFW\include;vender\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -146,6 +146,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\windowsWindow.h" />
     <ClInclude Include="src\Variant.h" />
     <ClInclude Include="src\Variant\Application.h" />
     <ClInclude Include="src\Variant\EntryPoint.h" />
@@ -155,21 +156,26 @@
     <ClInclude Include="src\Variant\Events\mouseEvent.h" />
     <ClInclude Include="src\Variant\Window.h" />
     <ClInclude Include="src\Variant\core.h" />
+    <ClInclude Include="src\Variant\layer.h" />
+    <ClInclude Include="src\Variant\layerStack.h" />
     <ClInclude Include="src\Variant\log.h" />
     <ClInclude Include="src\vrpch.h" />
-    <ClInclude Include="src\Platform\windowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\windowsWindow.cpp" />
     <ClCompile Include="src\Variant\Application.cpp" />
+    <ClCompile Include="src\Variant\layerStack.cpp" />
     <ClCompile Include="src\Variant\log.cpp" />
     <ClCompile Include="src\vrpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="src\Platform\windowsWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Vender\GLFW\GLFW.vcxproj">
       <Project>{154B857C-0182-860D-AA6E-6C109684020F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Vender\glad\glad.vcxproj">
+      <Project>{DD62977C-C999-980D-7286-7E105E9C140F}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
