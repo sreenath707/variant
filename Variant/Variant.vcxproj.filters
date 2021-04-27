@@ -10,6 +10,12 @@
     <Filter Include="Variant\Events">
       <UniqueIdentifier>{5E8A25F5-4A58-19FB-33EC-89211F59F55F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Variant\imgui">
+      <UniqueIdentifier>{A404DDAC-10C5-58E3-D9FF-A160457F9DBF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Variant\opengl">
+      <UniqueIdentifier>{0EA0B156-FA6D-A55C-E301-1683CF6E81C1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Platform\windowsWindow.h">
@@ -40,6 +46,9 @@
     <ClInclude Include="src\Variant\core.h">
       <Filter>Variant</Filter>
     </ClInclude>
+    <ClInclude Include="src\Variant\imgui\imguiLayer.h">
+      <Filter>Variant\imgui</Filter>
+    </ClInclude>
     <ClInclude Include="src\Variant\layer.h">
       <Filter>Variant</Filter>
     </ClInclude>
@@ -48,6 +57,12 @@
     </ClInclude>
     <ClInclude Include="src\Variant\log.h">
       <Filter>Variant</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\opengl\imgui_impl_glfw.h">
+      <Filter>Variant\opengl</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\opengl\imgui_impl_opengl3.h">
+      <Filter>Variant\opengl</Filter>
     </ClInclude>
     <ClInclude Include="src\vrpch.h" />
   </ItemGroup>
@@ -58,11 +73,17 @@
     <ClCompile Include="src\Variant\Application.cpp">
       <Filter>Variant</Filter>
     </ClCompile>
+    <ClCompile Include="src\Variant\imgui\imguiLayer.cpp">
+      <Filter>Variant\imgui</Filter>
+    </ClCompile>
     <ClCompile Include="src\Variant\layerStack.cpp">
       <Filter>Variant</Filter>
     </ClCompile>
     <ClCompile Include="src\Variant\log.cpp">
       <Filter>Variant</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Variant\opengl\imgui_impl_opengl3.cpp">
+      <Filter>Variant\opengl</Filter>
     </ClCompile>
     <ClCompile Include="src\vrpch.cpp" />
   </ItemGroup>

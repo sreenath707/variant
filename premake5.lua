@@ -13,10 +13,12 @@ outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 includeDirs ={}
 includeDirs["GLFW"] = "%{wks.location}/Variant/Vender/GLFW/include"
 includeDirs["glad"] = "%{wks.location}/Variant/vender/glad/include"
+includeDirs["imgui"] = "%{wks.location}/Variant/vender/imgui"
 
 
 include "Variant/Vender/GLFW"
 include "Variant/Vender/glad"
+include "Variant/Vender/imgui"
 
 project "Variant"
    location "Variant"
@@ -35,7 +37,8 @@ project "Variant"
    links
    {
       "GLFW",
-      "glad"
+      "glad",
+      "imgui"
    }
 
    includedirs
@@ -43,7 +46,8 @@ project "Variant"
       "%{wks.location}/Variant/Vender/spdlog/include",
       "%{wks.location}/%{prj.name}/src",
       "%{includeDirs.GLFW}",
-      "%{includeDirs.glad}"
+      "%{includeDirs.glad}",
+      "%{includeDirs.imgui}"
    }
 
    postbuildcommands
@@ -109,7 +113,8 @@ project "SandBox"
        "%{wks.location}/Variant/Vender/spdlog/include",  
        "%{wks.location}/Variant/src",
        "%{includeDirs.GLFW}",
-       "%{includeDirs.glad}"
+       "%{includeDirs.glad}",
+       "%{includeDirs.imgui}"
    }
    
    links

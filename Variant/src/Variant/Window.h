@@ -20,6 +20,7 @@ namespace Variant {
 		virtual  unsigned int getwidth() = 0;
 		virtual void setEventCallBack(windowCallFn callback) = 0;
 		virtual void update() = 0;
+		inline GLFWwindow* GetWindow() { return m_window; }
 		static Window* create();
 	};
 

@@ -5,7 +5,8 @@ namespace Variant {
 	{
 		std::string m_name;
 	public:
-		layer(){}
+		layer(std::string name)
+		:m_name(name){}
 		virtual ~layer(){}
 
 		virtual void OnAttach() {}

@@ -1,8 +1,6 @@
 #pragma once
 
 extern Variant::Application* Variant::CreateApplication();
-
-	   
  
 int main()
 {
