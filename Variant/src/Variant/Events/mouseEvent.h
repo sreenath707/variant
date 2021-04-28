@@ -12,6 +12,7 @@ namespace Variant {
 			:m_button(button) {}
 		std::string getName()override { return "mouseClicked"; }
 		EventType getEventType()override { return EventType::MouseButtonPressed; }
+		inline int GetMouseButton() { return m_button; }
 		std::string ToString()override
 		{
 			std::stringstream ss;
@@ -29,6 +30,7 @@ namespace Variant {
 			:m_button(button) {}
 		std::string getName()override { return "mouseReleased"; }
 		EventType getEventType()override { return EventType::MouseButtonReleased; }
+		inline int GetMouseButton() { return m_button; }
 		std::string ToString()override
 		{
 			std::stringstream ss;
@@ -56,6 +58,9 @@ namespace Variant {
 		}
 		static EventType StaticEventType() { return EventType::MouseMoved; }
 		int getEventCategery()override { return (EventCategoryMouse); };
+		double GetX() { return x_pos; }
+		double GetY() { return y_pos; }
+
 
 	};
 
@@ -75,5 +80,8 @@ namespace Variant {
 		}
 		static EventType StaticEventType() { return EventType::MouseScrolled; }
 		int getEventCategery()override { return (EventCategoryMouse); };
+		double GetXOffset() { return x_offset; }
+		double GetYOffset() { return y_offset; }
+
 	};
 }

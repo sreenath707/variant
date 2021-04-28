@@ -9,11 +9,11 @@ namespace Variant {
 		:m_name(name){}
 		virtual ~layer(){}
 
-		virtual void OnAttach() {}
-		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
-		virtual void OnImGuiRender() {}
-		virtual void OnEvent(Event& event){}
+		virtual void OnAttach() = 0;
+		virtual void OnDetach() = 0;
+		virtual void OnUpdate() = 0;
+		virtual void OnImGuiRender() = 0;
+		virtual void OnEvent(Event& event)=0;
 		virtual std::string getName() { return m_name; }
 
 	};

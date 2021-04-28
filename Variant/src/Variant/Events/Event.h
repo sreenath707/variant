@@ -29,7 +29,8 @@ namespace Variant {
 	{
 	public:
 		bool isHandled;
-
+		Event()
+			:isHandled(false){}
 		virtual ~Event() = default;
 
 		virtual std::string getName() = 0;

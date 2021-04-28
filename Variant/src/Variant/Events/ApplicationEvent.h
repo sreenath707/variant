@@ -34,6 +34,9 @@ namespace Variant{
 			ss << getName() << " width :" << m_width << " height :" << m_height;
 			return ss.str();
 		}
+		inline int GetWidth() { return m_width; }
+		inline int GetHeight() { return m_height; }
+
 	};
 }
 

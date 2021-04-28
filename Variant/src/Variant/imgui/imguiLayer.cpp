@@ -2,7 +2,69 @@
 #include "imguiLayer.h"
 #include "Variant/Application.h"
 
+//keyTyped event not working should debug!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 namespace Variant {
+	bool imguiLayer::OnKeyPressedEvent(keyPressedEvent& event)
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.KeysDown[event.getKeyCode()] = true;
+		io.KeyCtrl = io.KeysDown[GLFW_KEY_LEFT_CONTROL] || io.KeysDown[GLFW_KEY_RIGHT_CONTROL];
+		io.KeyShift = io.KeysDown[GLFW_KEY_LEFT_SHIFT] || io.KeysDown[GLFW_KEY_RIGHT_SHIFT];
+		io.KeyAlt = io.KeysDown[GLFW_KEY_LEFT_ALT] || io.KeysDown[GLFW_KEY_RIGHT_ALT];
+		io.KeySuper = io.KeysDown[GLFW_KEY_LEFT_SUPER] || io.KeysDown[GLFW_KEY_RIGHT_SUPER];
+		return false;
+	}
+	bool imguiLayer::OnKeyReleasedEvent(keyReleaseEvent& event)
+	{
+
+		ImGuiIO& io = ImGui::GetIO();
+		io.KeysDown[event.getKeyCode()] = false;
+		return false;
+	}
+	bool imguiLayer::OnKeyTypedEvent(keyTypedEvent& event)
+	{
+		std::cout << "this is ok" << std::endl;
+		ImGuiIO& io = ImGui::GetIO();
+		int keycode = event.getKeyCode();
+		if (keycode > 0 && keycode < 0x10000)
+			io.AddInputCharacter((unsigned short)keycode);
+		return false;
+	}
+	bool imguiLayer::OnMousePressedEvent(mouseClickEvent& event)
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.MouseDown[event.GetMouseButton()] = true;
+		return false;
+	}
+	bool imguiLayer::OnMouseReleasedEvent(mouseReleaseEvent& event)
+	{
+
+		ImGuiIO& io = ImGui::GetIO();
+		io.MouseDown[event.GetMouseButton()] = false;
+		return false;
+	}
+	bool imguiLayer::OnMouseScrollEvent(mouseScrollEvent& event)
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.MouseWheelH += event.GetXOffset();
+		io.MouseWheel += event.GetYOffset();
+		return false;
+	}
+	bool imguiLayer::OnWindowResizeEvent(WindowResizeEvent& event)
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.DisplaySize = ImVec2(event.GetWidth(), event.GetHeight());
+		io.DisplayFramebufferScale = ImVec2(1.0f, 1.0f);
+		glViewport(0, 0, event.GetWidth(), event.GetHeight());
+		return false;
+	}
+	bool imguiLayer::OnMouseMovedEvent(mousePosEvent& event)
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.MousePos = ImVec2(event.GetX(), event.GetY());
+		return false;
+	}
 	void imguiLayer::OnAttach()
 	{
 		ImGui::CreateContext();
@@ -40,7 +102,7 @@ namespace Variant {
 	}
 	void imguiLayer::OnDetach()
 	{
-
+		
 	}
 	void imguiLayer::OnUpdate()
 	{
@@ -50,26 +112,7 @@ namespace Variant {
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui::NewFrame();
 		static bool show = true;
-		{
-			static float f = 0.0f;
-			static int counter = 0;
-
-			ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
-
-			ImGui::Text("This is some useful text.");               // Display some text (you can use a format strings too)
-			ImGui::Checkbox("Demo Window", &show);      // Edit bools storing our window open/close state
-			ImGui::Checkbox("Another Window", &show);
-
-			ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
-
-			if (ImGui::Button("Button"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
-				counter++;
-			ImGui::SameLine();
-			ImGui::Text("counter = %d", counter);
-
-			ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-			ImGui::End();
-		}
+		ImGui::ShowDemoWindow(&show);
 
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
@@ -80,6 +123,14 @@ namespace Variant {
 	}
 	void imguiLayer::OnEvent(Event& event)
 	{
-
+		EventDispatcher dispatcher(event);
+		dispatcher.dispatch<keyPressedEvent>(std::bind(&imguiLayer::OnKeyPressedEvent,this, std::placeholders::_1));
+		dispatcher.dispatch<keyTypedEvent>(std::bind(&imguiLayer::OnKeyTypedEvent, this, std::placeholders::_1));
+		dispatcher.dispatch<keyReleaseEvent>(std::bind(&imguiLayer::OnKeyReleasedEvent, this, std::placeholders::_1));
+		dispatcher.dispatch<mouseClickEvent>(std::bind(&imguiLayer::OnMousePressedEvent, this, std::placeholders::_1));
+		dispatcher.dispatch<mouseScrollEvent>(std::bind(&imguiLayer::OnMouseScrollEvent, this, std::placeholders::_1));
+		dispatcher.dispatch<mouseReleaseEvent>(std::bind(&imguiLayer::OnMouseReleasedEvent, this, std::placeholders::_1));
+		dispatcher.dispatch<WindowResizeEvent>(std::bind(&imguiLayer::OnWindowResizeEvent, this, std::placeholders::_1));
+		dispatcher.dispatch<mousePosEvent>(std::bind(&imguiLayer::OnMouseMovedEvent, this, std::placeholders::_1));
 	}
 }

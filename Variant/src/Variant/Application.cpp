@@ -22,7 +22,8 @@ namespace Variant {
 		VR_core_info(e.ToString());
 		EventDispatcher dispatcher(e);
 		dispatcher.dispatch<WindowCloseEvent>(std::bind(&Application::OnWindowClose, this, std::placeholders::_1));
-		for (auto it = m_layerstack.rbegin(); it != m_layerstack.rend(); it++)
+		
+		for (auto it = m_layerstack.rbegin(); it != m_layerstack.rend(); ++it)
 		{
 			if (e.isHandled)
 			{
@@ -37,11 +38,13 @@ namespace Variant {
 		while (m_running)
 		{
 			
-			m_Window->update();
 			for (layer* layer : m_layerstack)
 			{
 				layer->OnUpdate();
 			}
+			m_Window->update();
+			glClearColor(0, 0, 0.7f, 1);
+			glClear(GL_COLOR_BUFFER_BIT);
 		}
 	}
 
