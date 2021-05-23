@@ -22,6 +22,7 @@ namespace Variant {
 		virtual void update() = 0;
 		inline GLFWwindow* GetWindow() { return m_window; }
 		static Window* create();
+		inline GLFWwindow* getGlfwWindow() { return m_window; }
 	};
 
 }

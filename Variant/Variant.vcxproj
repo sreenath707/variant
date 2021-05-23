@@ -146,6 +146,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\windowsInput.h" />
     <ClInclude Include="src\Platform\windowsWindow.h" />
     <ClInclude Include="src\Variant.h" />
     <ClInclude Include="src\Variant\Application.h" />
@@ -154,6 +155,7 @@
     <ClInclude Include="src\Variant\Events\Event.h" />
     <ClInclude Include="src\Variant\Events\keyEvent.h" />
     <ClInclude Include="src\Variant\Events\mouseEvent.h" />
+    <ClInclude Include="src\Variant\input.h" />
     <ClInclude Include="src\Variant\Window.h" />
     <ClInclude Include="src\Variant\core.h" />
     <ClInclude Include="src\Variant\imgui\imguiLayer.h" />
@@ -165,6 +167,7 @@
     <ClInclude Include="src\vrpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\windowsInput.cpp" />
     <ClCompile Include="src\Platform\windowsWindow.cpp" />
     <ClCompile Include="src\Variant\Application.cpp" />
     <ClCompile Include="src\Variant\imgui\imguiLayer.cpp" />

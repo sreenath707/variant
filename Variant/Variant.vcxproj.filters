@@ -65,6 +65,8 @@
       <Filter>Variant\opengl</Filter>
     </ClInclude>
     <ClInclude Include="src\vrpch.h" />
+    <ClInclude Include="src\Variant\input.h" />
+    <ClInclude Include="src\Platform\windowsInput.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\windowsWindow.cpp">
@@ -86,5 +88,6 @@
       <Filter>Variant\opengl</Filter>
     </ClCompile>
     <ClCompile Include="src\vrpch.cpp" />
+    <ClCompile Include="src\Platform\windowsInput.cpp" />
   </ItemGroup>
 </Project>

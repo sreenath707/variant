@@ -44,12 +44,7 @@ namespace Variant {
 		isVsync();
 	}
 
-	void windowsWindow::setEventCallBack(windowCallFn callback)
-	{
-		m_data.callback = callback;
-	}
-
-	 Window* Window::create()
+	Window* Window::create()
 	{
 		return new windowsWindow;
 	}

@@ -31,7 +31,10 @@ namespace Variant {
 		  unsigned int getwidth()override;
 		  unsigned int getheight()override;
 		  void setVsync(bool isOn);
-		  void setEventCallBack(windowCallFn callback)override;
+		  void setEventCallBack(windowCallFn callback)override
+		  {
+			  m_data.callback = callback;
+		  }
 
 		  void init(windowProps& props = windowProps(1280, 720, "Variant"));
 		  void update()override;

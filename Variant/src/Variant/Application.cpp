@@ -1,5 +1,6 @@
 #include "vrpch.h"
 #include "Application.h"
+#include "input.h"
 
 namespace Variant {
 	Application* Application::m_instance = NULL;
