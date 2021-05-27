@@ -7,8 +7,7 @@ class SandBox : public Variant::Application
 public:
 	SandBox()
 	{
-		pushOverlay(new Variant::imguiLayer);
-		VR_client_info("Imgui layer pushed!");
+		
 	}
 	~SandBox()
 	{

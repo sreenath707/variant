@@ -11,8 +11,8 @@ namespace Variant {
 
 		virtual void OnAttach() = 0;
 		virtual void OnDetach() = 0;
-		virtual void OnUpdate() = 0;
 		virtual void OnImGuiRender() = 0;
+		virtual void OnUpdate(){}
 		virtual void OnEvent(Event& event)=0;
 		virtual std::string getName() { return m_name; }
 

@@ -12,6 +12,7 @@ namespace Variant {
 		bool m_running;
 		std::unique_ptr<Window> m_Window;
 		layerStack m_layerstack;
+		std::unique_ptr<imguiLayer> ImLayer;
 		
 	public:
 		Application();

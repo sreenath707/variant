@@ -6,7 +6,7 @@ namespace Variant {
 
 	struct windowProps
 	{
-		windowProps(unsigned int width = 1280, unsigned int height = 720, std::string name = "Variant")
+		windowProps(unsigned int width = 1920, unsigned int height = 1080, std::string name = "Variant")
 			:width(width), height(height), name(name) {}
 		unsigned int width, height;
 		std::string name;
@@ -36,7 +36,7 @@ namespace Variant {
 			  m_data.callback = callback;
 		  }
 
-		  void init(windowProps& props = windowProps(1280, 720, "Variant"));
+		  void init(windowProps& props = windowProps());
 		  void update()override;
 	};
 }

@@ -11,6 +11,7 @@ namespace Variant {
 		m_Window = (std::unique_ptr<Window>)Window::create();
 		m_Window->setEventCallBack(std::bind(&Application::OnEvent,this ,std::placeholders::_1));
 
+		ImLayer = std::make_unique<imguiLayer>();
 	}
 
 	Application::~Application()
@@ -20,7 +21,6 @@ namespace Variant {
 
 	void Application::OnEvent(Event& e)
 	{
-		VR_core_info(e.ToString());
 		EventDispatcher dispatcher(e);
 		dispatcher.dispatch<WindowCloseEvent>(std::bind(&Application::OnWindowClose, this, std::placeholders::_1));
 		
@@ -43,7 +43,13 @@ namespace Variant {
 			{
 				layer->OnUpdate();
 			}
+
+			ImLayer->Begin();
+			ImLayer->OnImGuiRender();
+			ImLayer->End();
+
 			m_Window->update();
+
 			glClearColor(0, 0, 0.7f, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
 		}

@@ -14,6 +14,8 @@ includeDirs ={}
 includeDirs["GLFW"] = "%{wks.location}/Variant/Vender/GLFW/include"
 includeDirs["glad"] = "%{wks.location}/Variant/vender/glad/include"
 includeDirs["imgui"] = "%{wks.location}/Variant/vender/imgui"
+includeDirs["glm"] = "%{wks.location}/Variant/vender/glm"
+
 
 
 include "Variant/Vender/GLFW"
@@ -31,7 +33,8 @@ project "Variant"
    files 
    {
        "%{prj.name}/src/**.cpp",
-       "%{prj.name}/src/**.h"
+       "%{prj.name}/src/**.h",
+       "%{prj.name}/Vender/glm/glm/**.hpp"
    }
 
    links
@@ -47,7 +50,8 @@ project "Variant"
       "%{wks.location}/%{prj.name}/src",
       "%{includeDirs.GLFW}",
       "%{includeDirs.glad}",
-      "%{includeDirs.imgui}"
+      "%{includeDirs.imgui}",
+      "%{includeDirs.glm}"
    }
 
    postbuildcommands
@@ -114,7 +118,8 @@ project "SandBox"
        "%{wks.location}/Variant/src",
        "%{includeDirs.GLFW}",
        "%{includeDirs.glad}",
-       "%{includeDirs.imgui}"
+       "%{includeDirs.imgui}",
+       "%{includeDirs.glm}"
    }
    
    links

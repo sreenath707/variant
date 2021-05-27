@@ -7,3 +7,6 @@
 [submodule "Variant/Vender/imgui"]
 	path = Variant/Vender/imgui
 	url = https://github.com/sreenath707/imgui
+[submodule "Variant/Vender/glm"]
+	path = Variant/Vender/glm
+	url = https://github.com/g-truc/glm
