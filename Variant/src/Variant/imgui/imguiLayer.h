@@ -8,7 +8,7 @@
 #include "Variant/Events/ApplicationEvent.h"
 
 namespace Variant{
-	class VR_API imguiLayer :public layer
+	class  imguiLayer :public layer
 	{
 	public:
 		imguiLayer();

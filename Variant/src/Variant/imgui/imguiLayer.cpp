@@ -54,7 +54,7 @@ namespace Variant {
 
 		ImGuiIO& io = ImGui::GetIO();
 		Application& app = Application::Get();
-		io.DisplaySize = ImVec2(app.GetWindow().getwidth(), app.GetWindow().getheight());
+		io.DisplaySize = ImVec2((float)app.GetWindow().getwidth(), (float)app.GetWindow().getheight());
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 

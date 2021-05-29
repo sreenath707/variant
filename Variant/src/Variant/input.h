@@ -3,7 +3,7 @@
 
 
 namespace Variant {
-	class VR_API input
+	class input
 	{
 	private:
 		static input* s_instance;

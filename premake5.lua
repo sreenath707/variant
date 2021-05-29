@@ -25,7 +25,9 @@ include "Variant/Vender/imgui"
 project "Variant"
    location "Variant"
    language "C++"
-   kind "SharedLib"
+   cppdialect "C++17"
+   kind "StaticLib"
+   staticruntime "On"
 
     targetdir ("%{wks.location}/bin/" .. outputDir .. "/%{prj.name}")
 	objdir ("%{wks.location}/bin-int/" .. outputDir .. "/%{prj.name}")
@@ -44,6 +46,11 @@ project "Variant"
       "imgui"
    }
 
+   defines
+      {
+          "_CRT_SECURE_NO_WARNINGS"
+      }
+
    includedirs
    {
       "%{wks.location}/Variant/Vender/spdlog/include",
@@ -54,13 +61,8 @@ project "Variant"
       "%{includeDirs.glm}"
    }
 
-   postbuildcommands
-   {
-       ("{COPY} %{cfg.buildtarget.relpath} ../bin/" ..outputDir .."/SandBox")
-   }
 
    filter "system:windows"
-      cppdialect "C++17"
       staticruntime "On"
       systemversion "10.0.18362.0"
 
@@ -101,7 +103,9 @@ project "Variant"
 project "SandBox"
    location "SandBox"
    language "C++"
+   cppdialect "C++17"
    kind "consoleApp"
+   staticruntime "on"
 
    targetdir ("%{wks.location}/bin/" ..outputDir .."/%{prj.name}")
    objdir ("%{wks.location}/bin/" ..outputDir .."/%{prj.name}")
@@ -128,7 +132,6 @@ project "SandBox"
    }
 
    filter "system:windows"
-      cppdialect "C++17"
       staticruntime "On"
       systemversion "10.0.18362.0"
    

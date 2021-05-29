@@ -6,7 +6,7 @@
 
 namespace Variant {
 	
-	class VR_API Application
+	class Application
 	{
 		static Application* m_instance;
 		bool m_running;

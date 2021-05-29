@@ -18,7 +18,7 @@
 
 namespace Variant {
 
-	class VR_API log
+	class log
 	{
 	
 		static std::shared_ptr<spdlog::logger> m_coreLogger;

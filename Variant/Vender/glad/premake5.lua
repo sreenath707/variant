@@ -1,5 +1,6 @@
 project "glad"
 	kind "StaticLib"
+	staticruntime "On"
 	language "C"
 
 	targetdir ("bin/%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}/%{prj.name}")
@@ -18,7 +19,6 @@ project "glad"
 	}
 	filter "system:windows"
 		systemversion "latest"
-		staticruntime "On"
 
 	filter "configurations:Debug"
 		runtime "Debug"

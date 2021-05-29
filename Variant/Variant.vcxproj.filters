@@ -37,9 +37,6 @@
     <Filter Include="src\Variant\imgui">
       <UniqueIdentifier>{FB791224-6790-10BA-B007-9CDB1C5DE141}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Variant\opengl">
-      <UniqueIdentifier>{45C095B4-31A4-560A-9A04-515D8607418C}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Vender\glm\glm\common.hpp">
@@ -927,8 +924,6 @@
     <ClInclude Include="src\vrpch.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Variant\opengl\imgui_impl_glfw.h" />
-    <ClInclude Include="src\Variant\opengl\imgui_impl_opengl3.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\windowsInput.cpp">

@@ -23,19 +23,19 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v142</PlatformToolset>
@@ -54,32 +54,29 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LinkIncremental>true</LinkIncremental>
     <OutDir>..\bin\Debug-windows-x86_64\Variant\</OutDir>
     <IntDir>..\bin-int\Debug-windows-x86_64\Variant\</IntDir>
     <TargetName>Variant</TargetName>
-    <TargetExt>.dll</TargetExt>
+    <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LinkIncremental>false</LinkIncremental>
     <OutDir>..\bin\Release-windows-x86_64\Variant\</OutDir>
     <IntDir>..\bin-int\Release-windows-x86_64\Variant\</IntDir>
     <TargetName>Variant</TargetName>
-    <TargetExt>.dll</TargetExt>
+    <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
-    <LinkIncremental>false</LinkIncremental>
     <OutDir>..\bin\Dist-windows-x86_64\Variant\</OutDir>
     <IntDir>..\bin-int\Dist-windows-x86_64\Variant\</IntDir>
     <TargetName>Variant</TargetName>
-    <TargetExt>.dll</TargetExt>
+    <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>vrpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>VR_DLL;VR_WINDOWS;GLFW_INCLUDE_NONE;VR_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;VR_DLL;VR_WINDOWS;GLFW_INCLUDE_NONE;VR_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>Vender\spdlog\include;src;Vender\GLFW\include;vender\glad\include;vender\imgui;vender\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
@@ -89,18 +86,14 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ImportLibrary>..\bin\Debug-windows-x86_64\Variant\Variant.lib</ImportLibrary>
     </Link>
-    <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Debug-windows-x86_64\Variant\Variant.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Variant\Variant.dll ..\bin\Debug-windows-x86_64\SandBox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Variant\Variant.dll ..\bin\Debug-windows-x86_64\SandBox &gt; nul)</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>vrpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>VR_DLL;VR_WINDOWS;GLFW_INCLUDE_NONE;VR_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;VR_DLL;VR_WINDOWS;GLFW_INCLUDE_NONE;VR_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>Vender\spdlog\include;src;Vender\GLFW\include;vender\glad\include;vender\imgui;vender\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -114,18 +107,14 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <ImportLibrary>..\bin\Release-windows-x86_64\Variant\Variant.lib</ImportLibrary>
     </Link>
-    <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Release-windows-x86_64\Variant\Variant.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Variant\Variant.dll ..\bin\Release-windows-x86_64\SandBox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Variant\Variant.dll ..\bin\Release-windows-x86_64\SandBox &gt; nul)</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>vrpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>VR_DLL;VR_WINDOWS;GLFW_INCLUDE_NONE;VR_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;VR_DLL;VR_WINDOWS;GLFW_INCLUDE_NONE;VR_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>Vender\spdlog\include;src;Vender\GLFW\include;vender\glad\include;vender\imgui;vender\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -139,15 +128,9 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <ImportLibrary>..\bin\Dist-windows-x86_64\Variant\Variant.lib</ImportLibrary>
     </Link>
-    <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Dist-windows-x86_64\Variant\Variant.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Variant\Variant.dll ..\bin\Dist-windows-x86_64\SandBox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Variant\Variant.dll ..\bin\Dist-windows-x86_64\SandBox &gt; nul)</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Variant\opengl\imgui_impl_glfw.h" />
-    <ClInclude Include="src\Variant\opengl\imgui_impl_opengl3.h" />
     <ClInclude Include="Vender\glm\glm\common.hpp" />
     <ClInclude Include="Vender\glm\glm\detail\_features.hpp" />
     <ClInclude Include="Vender\glm\glm\detail\_fixes.hpp" />
