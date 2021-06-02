@@ -1,8 +1,10 @@
 #pragma once
-#include "Variant/Window.h"
-#include "Variant/core.h"
+#include "Variant/core/Window.h"
+#include "Variant/core/core.h"
+#include "Variant/Renderer/GraphicsContext.h"
 namespace Variant {
 	
+	GraphicsContext* m_context;
 
 	struct windowProps
 	{
@@ -36,7 +38,7 @@ namespace Variant {
 			  m_data.callback = callback;
 		  }
 
-		  void init(windowProps& props = windowProps());
+		  void init(windowProps& props = windowProps(1240,720));
 		  void update()override;
 	};
 }

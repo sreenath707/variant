@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Variant/input.h"
-#include "Variant/Application.h"
+#include "Variant/core/input.h"
+#include "Variant/core/Application.h"
 #include "GLFW/glfw3.h"
 
 namespace Variant {

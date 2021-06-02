@@ -131,6 +131,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Variant\Renderer\GraphicsContext.h" />
     <ClInclude Include="Vender\glm\glm\common.hpp" />
     <ClInclude Include="Vender\glm\glm\detail\_features.hpp" />
     <ClInclude Include="Vender\glm\glm\detail\_fixes.hpp" />
@@ -410,31 +412,33 @@
     <ClInclude Include="src\Platform\windowsInput.h" />
     <ClInclude Include="src\Platform\windowsWindow.h" />
     <ClInclude Include="src\Variant.h" />
-    <ClInclude Include="src\Variant\Application.h" />
-    <ClInclude Include="src\Variant\EntryPoint.h" />
+    <ClInclude Include="src\Variant\core\Application.h" />
+    <ClInclude Include="src\Variant\core\EntryPoint.h" />
     <ClInclude Include="src\Variant\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Variant\Events\Event.h" />
     <ClInclude Include="src\Variant\Events\keyEvent.h" />
     <ClInclude Include="src\Variant\Events\mouseEvent.h" />
-    <ClInclude Include="src\Variant\Window.h" />
-    <ClInclude Include="src\Variant\core.h" />
+    <ClInclude Include="src\Variant\core\Window.h" />
+    <ClInclude Include="src\Variant\core\core.h" />
     <ClInclude Include="src\Variant\imgui\imguiLayer.h" />
-    <ClInclude Include="src\Variant\input.h" />
-    <ClInclude Include="src\Variant\keyCodes.h" />
-    <ClInclude Include="src\Variant\layer.h" />
-    <ClInclude Include="src\Variant\layerStack.h" />
-    <ClInclude Include="src\Variant\log.h" />
-    <ClInclude Include="src\Variant\mouseCodes.h" />
+    <ClInclude Include="src\Variant\core\input.h" />
+    <ClInclude Include="src\Variant\core\keyCodes.h" />
+    <ClInclude Include="src\Variant\core\layer.h" />
+    <ClInclude Include="src\Variant\core\layerStack.h" />
+    <ClInclude Include="src\Variant\core\log.h" />
+    <ClInclude Include="src\Variant\core\mouseCodes.h" />
     <ClInclude Include="src\vrpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\windowsInput.cpp" />
     <ClCompile Include="src\Platform\windowsWindow.cpp" />
-    <ClCompile Include="src\Variant\Application.cpp" />
+    <ClCompile Include="src\Variant\core\Application.cpp" />
     <ClCompile Include="src\Variant\imgui\imguiBuild.cpp" />
     <ClCompile Include="src\Variant\imgui\imguiLayer.cpp" />
-    <ClCompile Include="src\Variant\layerStack.cpp" />
-    <ClCompile Include="src\Variant\log.cpp" />
+    <ClCompile Include="src\Variant\core\layerStack.cpp" />
+    <ClCompile Include="src\Variant\core\log.cpp" />
+    <ClCompile Include="src\Variant\Renderer\GraphicsContext.cpp" />
     <ClCompile Include="src\vrpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

@@ -873,15 +873,6 @@
     <ClInclude Include="src\Platform\windowsWindow.h">
       <Filter>src\Platform</Filter>
     </ClInclude>
-    <ClInclude Include="src\Variant.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Variant\Application.h">
-      <Filter>src\Variant</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Variant\EntryPoint.h">
-      <Filter>src\Variant</Filter>
-    </ClInclude>
     <ClInclude Include="src\Variant\Events\ApplicationEvent.h">
       <Filter>src\Variant\Events</Filter>
     </ClInclude>
@@ -894,36 +885,47 @@
     <ClInclude Include="src\Variant\Events\mouseEvent.h">
       <Filter>src\Variant\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\Variant\Window.h">
-      <Filter>src\Variant</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Variant\core.h">
-      <Filter>src\Variant</Filter>
-    </ClInclude>
     <ClInclude Include="src\Variant\imgui\imguiLayer.h">
       <Filter>src\Variant\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="src\Variant\input.h">
+    <ClInclude Include="src\Variant\core\Application.h">
       <Filter>src\Variant</Filter>
     </ClInclude>
-    <ClInclude Include="src\Variant\keyCodes.h">
+    <ClInclude Include="src\Variant\core\core.h">
       <Filter>src\Variant</Filter>
     </ClInclude>
-    <ClInclude Include="src\Variant\layer.h">
+    <ClInclude Include="src\Variant\core\EntryPoint.h">
       <Filter>src\Variant</Filter>
     </ClInclude>
-    <ClInclude Include="src\Variant\layerStack.h">
+    <ClInclude Include="src\Variant\core\input.h">
       <Filter>src\Variant</Filter>
     </ClInclude>
-    <ClInclude Include="src\Variant\log.h">
+    <ClInclude Include="src\Variant\core\keyCodes.h">
       <Filter>src\Variant</Filter>
     </ClInclude>
-    <ClInclude Include="src\Variant\mouseCodes.h">
+    <ClInclude Include="src\Variant\core\layer.h">
+      <Filter>src\Variant</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\core\layerStack.h">
+      <Filter>src\Variant</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\core\log.h">
+      <Filter>src\Variant</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\core\mouseCodes.h">
+      <Filter>src\Variant</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\core\Window.h">
       <Filter>src\Variant</Filter>
     </ClInclude>
     <ClInclude Include="src\vrpch.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\Variant.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\OpenGL\OpenGLContext.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\windowsInput.cpp">
@@ -932,23 +934,25 @@
     <ClCompile Include="src\Platform\windowsWindow.cpp">
       <Filter>src\Platform</Filter>
     </ClCompile>
-    <ClCompile Include="src\Variant\Application.cpp">
-      <Filter>src\Variant</Filter>
-    </ClCompile>
     <ClCompile Include="src\Variant\imgui\imguiBuild.cpp">
       <Filter>src\Variant\imgui</Filter>
     </ClCompile>
     <ClCompile Include="src\Variant\imgui\imguiLayer.cpp">
       <Filter>src\Variant\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="src\Variant\layerStack.cpp">
+    <ClCompile Include="src\Variant\core\Application.cpp">
       <Filter>src\Variant</Filter>
     </ClCompile>
-    <ClCompile Include="src\Variant\log.cpp">
+    <ClCompile Include="src\Variant\core\layerStack.cpp">
+      <Filter>src\Variant</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Variant\core\log.cpp">
       <Filter>src\Variant</Filter>
     </ClCompile>
     <ClCompile Include="src\vrpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Variant\Renderer\GraphicsContext.cpp" />
   </ItemGroup>
 </Project>

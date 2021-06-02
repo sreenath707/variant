@@ -3,8 +3,9 @@
 #include "glad/glad.h"
 #include "log.h"
 #include "GLFW/glfw3.h"
-#include "Events/Event.h"
-#include "Events/ApplicationEvent.h"
+#include "Variant/Events/Event.h"
+#include "Variant/Events/ApplicationEvent.h"
+
 
 namespace Variant {
 	using windowCallFn = std::function<void(Event&)>;

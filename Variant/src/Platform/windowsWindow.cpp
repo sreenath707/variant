@@ -3,6 +3,7 @@
 #include "Variant/Events/keyEvent.h"
 #include "Variant/Events/ApplicationEvent.h"
 #include "Variant/Events/mouseEvent.h"
+#include "OpenGL/OpenGLContext.h"
 
 
 namespace Variant {
@@ -65,11 +66,10 @@ namespace Variant {
 			VR_core_error("Window initialization failed!!");
 			glfwTerminate();
 		}
-		glfwMakeContextCurrent(m_window);
-		VR_ASSERT(gladLoadGLLoader((GLADloadproc)glfwGetProcAddress));
+
+		m_context = new OpenGLContext(m_window);
+		m_context->init();
 		glfwSetWindowUserPointer(m_window, &m_data);
-		glfwSwapInterval(1);
-		VR_core_info("Window started!!");
 
 		
 		glfwSetKeyCallback(m_window, [](GLFWwindow* window, int key, int scancode, int action, int mods)
@@ -148,7 +148,7 @@ namespace Variant {
 	}
 	void windowsWindow::update()
 	{
-		glfwSwapBuffers(m_window);
+		m_context->swapBuffers();
 		glfwPollEvents();
 	}
 }

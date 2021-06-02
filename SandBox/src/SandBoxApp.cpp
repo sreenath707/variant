@@ -1,4 +1,4 @@
-#include "..\..\Variant\src\Variant\Application.h"
+#include "..\..\Variant\src\Variant\core\Application.h"
 #include <variant.h>
 
 

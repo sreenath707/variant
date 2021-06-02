@@ -1,5 +1,5 @@
 #pragma once
-#include "Variant/core.h"
+#include "Variant/core/core.h"
 #include "vrpch.h"
 
 //CATEGERIES SHOULD BE IMPLIMENTED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
