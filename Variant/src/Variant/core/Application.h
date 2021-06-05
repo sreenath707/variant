@@ -3,6 +3,7 @@
 #include "Window.h"
 #include "layerStack.h"
 #include "Variant/imgui/imguiLayer.h"
+#include "Variant/Renderer/Buffer.h"
 
 namespace Variant {
 	
@@ -13,6 +14,11 @@ namespace Variant {
 		std::unique_ptr<Window> m_Window;
 		layerStack m_layerstack;
 		std::unique_ptr<imguiLayer> ImLayer;
+		
+		vertexBuffer* m_vertexBuffer;
+		indexBuffer* m_indexBuffer;
+		unsigned int m_vertexArrayId;
+
 		
 	public:
 		Application();

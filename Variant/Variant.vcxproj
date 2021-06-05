@@ -131,8 +131,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Variant\Renderer\Buffer.h" />
     <ClInclude Include="src\Variant\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Variant\Renderer\vertexArray.h" />
     <ClInclude Include="Vender\glm\glm\common.hpp" />
     <ClInclude Include="Vender\glm\glm\detail\_features.hpp" />
     <ClInclude Include="Vender\glm\glm\detail\_fixes.hpp" />
@@ -430,6 +433,7 @@
     <ClInclude Include="src\vrpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\windowsInput.cpp" />
     <ClCompile Include="src\Platform\windowsWindow.cpp" />
@@ -438,7 +442,9 @@
     <ClCompile Include="src\Variant\imgui\imguiLayer.cpp" />
     <ClCompile Include="src\Variant\core\layerStack.cpp" />
     <ClCompile Include="src\Variant\core\log.cpp" />
+    <ClCompile Include="src\Variant\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Variant\Renderer\GraphicsContext.cpp" />
+    <ClCompile Include="src\Variant\Renderer\vertexArray.cpp" />
     <ClCompile Include="src\vrpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

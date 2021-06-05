@@ -12,6 +12,26 @@ namespace Variant {
 		m_Window->setEventCallBack(std::bind(&Application::OnEvent,this ,std::placeholders::_1));
 
 		ImLayer = std::make_unique<imguiLayer>();
+
+		glCreateVertexArrays(1, &m_vertexArrayId);
+		glBindVertexArray(m_vertexArrayId);
+
+		float vertices[9] =
+		{
+			-0.5f,-0.5f,0.0f,
+			 0.5f,-0.5f,0.0f,
+			 0.0f,0.5f,0.0f
+		};
+
+		m_vertexBuffer = vertexBuffer::Create(vertices,sizeof(vertices));
+		m_vertexBuffer->Bind();
+
+		glEnableVertexAttribArray(0);
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
+
+		unsigned int indices[3] = { 0,1,2 }; 
+		m_indexBuffer = indexBuffer::Create(indices, sizeof(indices));
+		m_indexBuffer->Bind();
 	}
 
 	Application::~Application()
@@ -50,8 +70,12 @@ namespace Variant {
 
 			m_Window->update();
 
-			glClearColor(0, 0, 0.7f, 1);
+
+			glClearColor(0.1f, 0.1f, 0.1f, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
+
+			glBindVertexArray(m_vertexArrayId);
+			glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
 		}
 	}
 
