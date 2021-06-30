@@ -13,9 +13,9 @@ namespace Variant {
 
 		ImLayer = std::make_unique<imguiLayer>();
 
-		glCreateVertexArrays(1, &m_vertexArrayId);
-		glBindVertexArray(m_vertexArrayId);
 
+		m_vertexArray.reset(vertexArray::Create());
+		
 		float vertices[9] =
 		{
 			-0.5f,-0.5f,0.0f,
@@ -23,15 +23,24 @@ namespace Variant {
 			 0.0f,0.5f,0.0f
 		};
 
-		m_vertexBuffer = vertexBuffer::Create(vertices,sizeof(vertices));
+		m_vertexBuffer.reset(vertexBuffer::Create(vertices,sizeof(vertices)));
 		m_vertexBuffer->Bind();
+
+		BufferLayout layout = {
+			{shaderDataType::Float3,"position"}
+		};
+
+		m_vertexBuffer->setLayout(layout);
+		m_vertexArray->addVertexBuffer(m_vertexBuffer);
+		
 
 		glEnableVertexAttribArray(0);
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
 
 		unsigned int indices[3] = { 0,1,2 }; 
-		m_indexBuffer = indexBuffer::Create(indices, sizeof(indices));
+		m_indexBuffer.reset(indexBuffer::Create(indices, sizeof(indices)));
 		m_indexBuffer->Bind();
+		m_vertexArray->SetIndexBuffer(m_indexBuffer);
 	}
 
 	Application::~Application()
@@ -74,7 +83,7 @@ namespace Variant {
 			glClearColor(0.1f, 0.1f, 0.1f, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
 
-			glBindVertexArray(m_vertexArrayId);
+			m_vertexArray->Bind();
 			glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
 		}
 	}

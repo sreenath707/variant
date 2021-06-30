@@ -4,6 +4,7 @@
 #include "layerStack.h"
 #include "Variant/imgui/imguiLayer.h"
 #include "Variant/Renderer/Buffer.h"
+#include "Variant/Renderer/vertexArray.h"
 
 namespace Variant {
 	
@@ -15,9 +16,9 @@ namespace Variant {
 		layerStack m_layerstack;
 		std::unique_ptr<imguiLayer> ImLayer;
 		
-		vertexBuffer* m_vertexBuffer;
-		indexBuffer* m_indexBuffer;
-		unsigned int m_vertexArrayId;
+		std::shared_ptr<vertexBuffer> m_vertexBuffer;
+		std::shared_ptr<indexBuffer> m_indexBuffer;
+		std::shared_ptr<vertexArray> m_vertexArray;
 
 		
 	public:

@@ -929,6 +929,7 @@
     <ClInclude Include="src\Variant\Renderer\vertexArray.h" />
     <ClInclude Include="src\Variant\Renderer\Buffer.h" />
     <ClInclude Include="src\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="src\OpenGL\OpenGLVertexArray.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\windowsInput.cpp">
@@ -960,5 +961,6 @@
     <ClCompile Include="src\Variant\Renderer\vertexArray.cpp" />
     <ClCompile Include="src\Variant\Renderer\Buffer.cpp" />
     <ClCompile Include="src\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="src\OpenGL\OpenGLVertexArray.cpp" />
   </ItemGroup>
 </Project>
