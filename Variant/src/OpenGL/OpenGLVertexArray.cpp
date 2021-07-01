@@ -91,8 +91,8 @@ namespace Variant {
 		glBindVertexArray(m_rendererId);
 		Buffer->Bind();
 
-		BufferLayout layout = Buffer->getLayout();
-		for (auto element : layout)
+		auto& layout = Buffer->getLayout();
+		for (auto& element : layout)
 		{
 			glEnableVertexAttribArray(m_vertexBufferIndex);
 			glVertexAttribPointer(m_vertexBufferIndex,

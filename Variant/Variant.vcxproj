@@ -136,6 +136,7 @@
     <ClInclude Include="src\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\Variant\Renderer\Buffer.h" />
     <ClInclude Include="src\Variant\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Variant\Renderer\shader.h" />
     <ClInclude Include="src\Variant\Renderer\vertexArray.h" />
     <ClInclude Include="Vender\glm\glm\common.hpp" />
     <ClInclude Include="Vender\glm\glm\detail\_features.hpp" />
@@ -446,6 +447,7 @@
     <ClCompile Include="src\Variant\core\log.cpp" />
     <ClCompile Include="src\Variant\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Variant\Renderer\GraphicsContext.cpp" />
+    <ClCompile Include="src\Variant\Renderer\shader.cpp" />
     <ClCompile Include="src\Variant\Renderer\vertexArray.cpp" />
     <ClCompile Include="src\vrpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

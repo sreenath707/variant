@@ -77,18 +77,18 @@ namespace Variant {
 			
 			m_stride = 0;
 			unsigned int offset = 0;
-			for (auto element : m_Elements)
+			for (auto& element : m_Elements)
 			{
 				element.offset = offset;
 				offset += element.size;
 				m_stride += element.size;
 			}
+			
+
 		}
 
 		std::vector<layoutElement>::iterator begin() { return m_Elements.begin(); }
 		std::vector<layoutElement>::iterator end() { return m_Elements.end(); }
-		std::vector<layoutElement>::const_iterator begin() const { return m_Elements.begin(); }
-		std::vector<layoutElement>::const_iterator end() const { return m_Elements.end(); }
 
 		unsigned int getStride() { return m_stride; }
 		const std::vector<layoutElement>& getLayout()const{ return m_Elements; }

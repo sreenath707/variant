@@ -930,6 +930,7 @@
     <ClInclude Include="src\Variant\Renderer\Buffer.h" />
     <ClInclude Include="src\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\OpenGL\OpenGLVertexArray.h" />
+    <ClInclude Include="src\Variant\Renderer\shader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\windowsInput.cpp">
@@ -962,5 +963,6 @@
     <ClCompile Include="src\Variant\Renderer\Buffer.cpp" />
     <ClCompile Include="src\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\OpenGL\OpenGLVertexArray.cpp" />
+    <ClCompile Include="src\Variant\Renderer\shader.cpp" />
   </ItemGroup>
 </Project>

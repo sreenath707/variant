@@ -16,31 +16,56 @@ namespace Variant {
 
 		m_vertexArray.reset(vertexArray::Create());
 		
-		float vertices[9] =
+		float vertices[3*6] =
 		{
-			-0.5f,-0.5f,0.0f,
-			 0.5f,-0.5f,0.0f,
-			 0.0f,0.5f,0.0f
+			-0.5f,-0.5f,0.0f     ,1.0,0,0,
+			 0.5f,-0.5f,0.0f     ,0,1.0,0,
+			 0.0f,0.5f,0.0f      ,0,0,1.0
 		};
 
 		m_vertexBuffer.reset(vertexBuffer::Create(vertices,sizeof(vertices)));
 		m_vertexBuffer->Bind();
 
 		BufferLayout layout = {
-			{shaderDataType::Float3,"position"}
+			{shaderDataType::Float3,"position"},
+			{shaderDataType::Float3,"color"}
 		};
 
 		m_vertexBuffer->setLayout(layout);
 		m_vertexArray->addVertexBuffer(m_vertexBuffer);
 		
 
-		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
-
 		unsigned int indices[3] = { 0,1,2 }; 
 		m_indexBuffer.reset(indexBuffer::Create(indices, sizeof(indices)));
 		m_indexBuffer->Bind();
 		m_vertexArray->SetIndexBuffer(m_indexBuffer);
+
+		std::string vertexSrc = R"(
+			#version 330 core
+			layout(location=0) in vec3 a_position;
+			layout(location=1) in vec3 a_color;
+			out vec3 v_position;
+			void main()
+			{
+				v_position = a_color;
+				gl_Position = vec4(a_position,1.0);
+			}
+
+			)";
+		std::string fragmentSrc = R"(
+			#version 330 core
+			layout (location=0) out vec4 color;
+			in vec3 v_position;
+			void main()
+			{
+				color = vec4(v_position,1.0);
+			}
+
+			)";
+
+		m_shader.reset(new shader(vertexSrc, fragmentSrc));
+		
+
 	}
 
 	Application::~Application()
@@ -79,6 +104,7 @@ namespace Variant {
 
 			m_Window->update();
 
+			m_shader->Bind();
 
 			glClearColor(0.1f, 0.1f, 0.1f, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
