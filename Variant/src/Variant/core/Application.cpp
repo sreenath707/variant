@@ -1,6 +1,8 @@
 #include "vrpch.h"
 #include "Application.h"
 #include "input.h"
+#include "Variant/Renderer/Renderer.h"
+#include "Variant/Renderer/RendererCommand.h"
 
 namespace Variant {
 	Application* Application::m_instance = NULL;
@@ -36,7 +38,7 @@ namespace Variant {
 		
 
 		unsigned int indices[3] = { 0,1,2 }; 
-		m_indexBuffer.reset(indexBuffer::Create(indices, sizeof(indices)));
+		m_indexBuffer.reset(indexBuffer::Create(indices, 3));
 		m_indexBuffer->Bind();
 		m_vertexArray->SetIndexBuffer(m_indexBuffer);
 
@@ -106,11 +108,13 @@ namespace Variant {
 
 			m_shader->Bind();
 
-			glClearColor(0.1f, 0.1f, 0.1f, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
-
-			m_vertexArray->Bind();
-			glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
+			RendererCommand::setColor({ 0.1f, 0.1f, 0.1f, 1 });
+			RendererCommand::clearColor();
+			
+			Renderer::BeginScene();
+			Renderer::submit(m_vertexArray);
+			Renderer::EndScene();
+			
 		}
 	}
 

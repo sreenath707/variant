@@ -18,6 +18,9 @@ namespace Variant {
 
 		virtual void SetIndexBuffer(std::shared_ptr<indexBuffer>& Buffer) override;
 		virtual void addVertexBuffer(std::shared_ptr<vertexBuffer>& Buffer) override;
+
+		virtual std::vector<std::shared_ptr<vertexBuffer>>& getVertexBuffers() override;
+		virtual std::shared_ptr<indexBuffer>& getIndexBuffer() override;
 		virtual void Bind() override;
 		virtual void UnBind() override;
 

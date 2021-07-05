@@ -107,6 +107,16 @@ namespace Variant {
 		}
 	}
 
+	std::vector<std::shared_ptr<vertexBuffer>>& OpenGLVertexArray::getVertexBuffers()
+	{
+		return m_vertexBuffers;
+	}
+
+	std::shared_ptr<indexBuffer>& OpenGLVertexArray::getIndexBuffer()
+	{
+		return m_indexBuffer;
+	}
+
 	void OpenGLVertexArray::Bind()
 	{
 		glBindVertexArray(m_rendererId);

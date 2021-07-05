@@ -133,9 +133,13 @@
   <ItemGroup>
     <ClInclude Include="src\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\Variant\Renderer\Buffer.h" />
     <ClInclude Include="src\Variant\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Variant\Renderer\Renderer.h" />
+    <ClInclude Include="src\Variant\Renderer\RendererAPI.h" />
+    <ClInclude Include="src\Variant\Renderer\RendererCommand.h" />
     <ClInclude Include="src\Variant\Renderer\shader.h" />
     <ClInclude Include="src\Variant\Renderer\vertexArray.h" />
     <ClInclude Include="Vender\glm\glm\common.hpp" />
@@ -437,6 +441,7 @@
   <ItemGroup>
     <ClCompile Include="src\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\OpenGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="src\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\Platform\windowsInput.cpp" />
     <ClCompile Include="src\Platform\windowsWindow.cpp" />
@@ -447,6 +452,9 @@
     <ClCompile Include="src\Variant\core\log.cpp" />
     <ClCompile Include="src\Variant\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Variant\Renderer\GraphicsContext.cpp" />
+    <ClCompile Include="src\Variant\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Variant\Renderer\RendererAPI.cpp" />
+    <ClCompile Include="src\Variant\Renderer\RendererCommand.cpp" />
     <ClCompile Include="src\Variant\Renderer\shader.cpp" />
     <ClCompile Include="src\Variant\Renderer\vertexArray.cpp" />
     <ClCompile Include="src\vrpch.cpp">

@@ -15,9 +15,12 @@ namespace Variant {
 	class OpenGLIndexBuffer : public indexBuffer
 	{
 		unsigned int m_rendererId;
+		unsigned int m_count;
 	public:
-		OpenGLIndexBuffer(void* indices, unsigned int size);
+		OpenGLIndexBuffer(void* indices, unsigned int count);
 		virtual void Bind()override;
 		virtual void unbind()override;
+		inline virtual unsigned int getCount()override { return m_count; }
+
 	};
 }

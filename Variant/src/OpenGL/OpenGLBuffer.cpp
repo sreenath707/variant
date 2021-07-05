@@ -20,12 +20,13 @@ namespace Variant {
 	}
 
 
-	OpenGLIndexBuffer::OpenGLIndexBuffer(void* indices, unsigned int size)
+	OpenGLIndexBuffer::OpenGLIndexBuffer(void* indices, unsigned int count)
+		:m_count(count)
 	{
 
 		glCreateBuffers(1, &m_rendererId);
 		Bind();
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, size, indices, GL_STATIC_DRAW);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, count*sizeof(unsigned int), indices, GL_STATIC_DRAW);
 
 	}
 

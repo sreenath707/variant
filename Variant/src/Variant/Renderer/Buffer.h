@@ -118,9 +118,10 @@ namespace Variant {
 	{
 	public:
 
-		static indexBuffer* Create(void* indices, unsigned int size);
+		static indexBuffer* Create(void* indices, unsigned int count);
 
 		virtual void Bind() = 0;
 		virtual void unbind() = 0;
+		virtual unsigned int getCount() = 0;
 	};
 }
