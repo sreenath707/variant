@@ -3,6 +3,7 @@
 #include <glad/glad.h>
 #include "Variant/core/core.h"
 #include "Variant/core/log.h"
+#include <glm/gtc/type_ptr.hpp>
 
 namespace Variant {
 
@@ -133,6 +134,12 @@ namespace Variant {
 	void shader::UnBind()
 	{
 		glUseProgram(0);
+	}
+
+	void shader::uploadUniformMat4(std::string uniformName,const glm::mat4& matrix)
+	{
+		int uniformId = glGetUniformLocation(m_rendererId, uniformName.c_str());
+		glUniformMatrix4fv(uniformId, 1, false, glm::value_ptr(matrix));
 	}
 
 }

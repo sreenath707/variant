@@ -7,7 +7,7 @@
 namespace Variant {
 	Application* Application::m_instance = NULL;
 	Application::Application()
-		:m_running(true)
+		:m_running(true), m_camera(-1.6f, 1.6f, -0.9f, 0.9f)
 	{
 		m_instance = this;
 		m_Window = (std::unique_ptr<Window>)Window::create();
@@ -46,11 +46,13 @@ namespace Variant {
 			#version 330 core
 			layout(location=0) in vec3 a_position;
 			layout(location=1) in vec3 a_color;
+			uniform mat4 u_viewProjection;
+
 			out vec3 v_position;
 			void main()
 			{
 				v_position = a_color;
-				gl_Position = vec4(a_position,1.0);
+				gl_Position = u_viewProjection * vec4(a_position,1.0);
 			}
 
 			)";
@@ -111,6 +113,10 @@ namespace Variant {
 			RendererCommand::setColor({ 0.1f, 0.1f, 0.1f, 1 });
 			RendererCommand::clearColor();
 			
+			m_shader->Bind();
+			//m_camera.setPosition({ 0.5,0.5,0 });
+			m_camera.setRotation(45.0f);
+			m_shader->uploadUniformMat4("u_viewProjection", m_camera.getProjectionView());
 			Renderer::BeginScene();
 			Renderer::submit(m_vertexArray);
 			Renderer::EndScene();

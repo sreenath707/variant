@@ -6,7 +6,7 @@
 #include "Variant/Renderer/Buffer.h"
 #include "Variant/Renderer/vertexArray.h"
 #include "Variant/Renderer/shader.h"
-
+#include "Variant/Renderer/OrthographicCamera.h"
 
 namespace Variant {
 	
@@ -22,6 +22,7 @@ namespace Variant {
 		std::shared_ptr<indexBuffer> m_indexBuffer;
 		std::shared_ptr<vertexArray> m_vertexArray;
 		std::shared_ptr<shader> m_shader;
+		OrthographicCamera m_camera;
 
 		
 	public:

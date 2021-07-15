@@ -935,6 +935,7 @@
     <ClInclude Include="src\Variant\Renderer\Renderer.h" />
     <ClInclude Include="src\Variant\Renderer\RendererCommand.h" />
     <ClInclude Include="src\OpenGL\OpenGLRendererAPI.h" />
+    <ClInclude Include="src\Variant\Renderer\OrthographicCamera.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\windowsInput.cpp">
@@ -972,5 +973,6 @@
     <ClCompile Include="src\Variant\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Variant\Renderer\RendererCommand.cpp" />
     <ClCompile Include="src\OpenGL\OpenGLRendererAPI.cpp" />
+    <ClCompile Include="src\Variant\Renderer\OrthographicCamera.cpp" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
 #pragma once
+#include<glm/glm.hpp>
 
 namespace Variant {
 	class shader
@@ -10,6 +11,7 @@ namespace Variant {
 		~shader();
 		void Bind();
 		void UnBind();
+		void uploadUniformMat4(std::string uniformName, const glm::mat4& matrix);
 
 	};
 }

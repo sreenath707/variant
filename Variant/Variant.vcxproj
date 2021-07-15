@@ -137,6 +137,7 @@
     <ClInclude Include="src\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\Variant\Renderer\Buffer.h" />
     <ClInclude Include="src\Variant\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Variant\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\Variant\Renderer\Renderer.h" />
     <ClInclude Include="src\Variant\Renderer\RendererAPI.h" />
     <ClInclude Include="src\Variant\Renderer\RendererCommand.h" />
@@ -452,6 +453,7 @@
     <ClCompile Include="src\Variant\core\log.cpp" />
     <ClCompile Include="src\Variant\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Variant\Renderer\GraphicsContext.cpp" />
+    <ClCompile Include="src\Variant\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\Variant\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Variant\Renderer\RendererAPI.cpp" />
     <ClCompile Include="src\Variant\Renderer\RendererCommand.cpp" />
