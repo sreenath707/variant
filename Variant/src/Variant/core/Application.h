@@ -7,6 +7,7 @@
 #include "Variant/Renderer/vertexArray.h"
 #include "Variant/Renderer/shader.h"
 #include "Variant/Renderer/OrthographicCamera.h"
+#include "Variant/core/deltaTime.h"
 
 namespace Variant {
 	
@@ -17,12 +18,7 @@ namespace Variant {
 		std::unique_ptr<Window> m_Window;
 		layerStack m_layerstack;
 		std::unique_ptr<imguiLayer> ImLayer;
-		
-		std::shared_ptr<vertexBuffer> m_vertexBuffer;
-		std::shared_ptr<indexBuffer> m_indexBuffer;
-		std::shared_ptr<vertexArray> m_vertexArray;
-		std::shared_ptr<shader> m_shader;
-		OrthographicCamera m_camera;
+		float m_currTime=0;
 
 		
 	public:

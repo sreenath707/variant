@@ -16,8 +16,7 @@ namespace Variant {
 	}
 	void layerStack::pushLayer(layer* layer)
 	{
-		m_layers.emplace(m_layerit, layer);
-		m_layerit++;
+		m_layerit = m_layers.emplace(m_layerit, layer);
 	}
 	void layerStack::popLayer(layer* layer)
 	{
@@ -26,7 +25,7 @@ namespace Variant {
 		{
 			layer->OnDetach();
 			m_layers.erase(it);
-			m_layerit++;
+			m_layerit--;
 		}
 		
 	}

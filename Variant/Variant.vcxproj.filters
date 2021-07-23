@@ -936,6 +936,7 @@
     <ClInclude Include="src\Variant\Renderer\RendererCommand.h" />
     <ClInclude Include="src\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\Variant\Renderer\OrthographicCamera.h" />
+    <ClInclude Include="src\Variant\core\deltaTime.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\windowsInput.cpp">

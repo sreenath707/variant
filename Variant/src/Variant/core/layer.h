@@ -1,5 +1,7 @@
 #pragma once
 #include "Variant/Events/Event.h"
+#include "Variant/core/deltaTime.h";
+
 namespace Variant {
 	class layer
 	{
@@ -12,7 +14,7 @@ namespace Variant {
 		virtual void OnAttach() = 0;
 		virtual void OnDetach() = 0;
 		virtual void OnImGuiRender() = 0;
-		virtual void OnUpdate(){}
+		virtual void OnUpdate(deltaTime dt) {};
 		virtual void OnEvent(Event& event)=0;
 		virtual std::string getName() { return m_name; }
 

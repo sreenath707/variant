@@ -135,6 +135,7 @@
     <ClInclude Include="src\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\OpenGL\OpenGLVertexArray.h" />
+    <ClInclude Include="src\Variant\core\deltaTime.h" />
     <ClInclude Include="src\Variant\Renderer\Buffer.h" />
     <ClInclude Include="src\Variant\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Variant\Renderer\OrthographicCamera.h" />
