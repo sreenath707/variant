@@ -16,4 +16,8 @@ namespace Variant {
 	{
 		glClear(GL_COLOR_BUFFER_BIT);
 	}
+	void OpenGLRendererAPI::setViewPort(float width, float height)
+	{
+		glViewport(0, 0, width, height);
+	}
 }

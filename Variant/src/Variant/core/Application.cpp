@@ -26,6 +26,7 @@ namespace Variant {
 	{
 		EventDispatcher dispatcher(e);
 		dispatcher.dispatch<WindowCloseEvent>(std::bind(&Application::OnWindowClose, this, std::placeholders::_1));
+		dispatcher.dispatch<WindowResizeEvent>(std::bind(&Application::OnWindowResize, this, std::placeholders::_1));
 		
 		for (auto it = m_layerstack.rbegin(); it != m_layerstack.rend(); ++it)
 		{
@@ -51,13 +52,12 @@ namespace Variant {
 			}
 
 			ImLayer->Begin();
+			for (layer* layer : m_layerstack)
+				layer->OnImGuiRender();
 			ImLayer->OnImGuiRender();
 			ImLayer->End();
 
 			m_Window->update();
-
-			
-			
 		}
 	}
 
@@ -65,6 +65,12 @@ namespace Variant {
 	{
 		m_running = false;
 		return true;
+	}
+
+	bool Application::OnWindowResize(WindowResizeEvent& e)
+	{
+		RendererCommand::setViewPort(e.GetWidth(), e.GetHeight());
+		return false;
 	}
 
 	void Application::pushLayer(layer* layer)

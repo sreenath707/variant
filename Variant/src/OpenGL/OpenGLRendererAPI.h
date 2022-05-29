@@ -8,6 +8,7 @@ namespace Variant {
 		virtual void drawIndexed(std::shared_ptr<vertexArray> v_vertexArray)override;
 		virtual void setColor(glm::vec4 color) override;
 		virtual void clearColor() override;
+		virtual void setViewPort(float width, float height) override;
 
 	};
 }

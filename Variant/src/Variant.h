@@ -19,8 +19,11 @@
 #include "Variant/Renderer/vertexArray.h"
 #include "Variant/Renderer/shader.h"
 #include "Variant/Renderer/Renderer.h"
+#include "Variant/Renderer/Renderer2D.h"
 #include "Variant/Renderer/RendererCommand.h"
 #include "Variant/Renderer/OrthographicCamera.h"
+
+#include "Variant/Renderer/OrthographicCameraController.h"
 
 
 //-----------ENTRY POINT-----------

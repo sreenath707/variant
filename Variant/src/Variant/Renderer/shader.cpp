@@ -4,14 +4,47 @@
 #include "Variant/core/core.h"
 #include "Variant/core/log.h"
 #include <glm/gtc/type_ptr.hpp>
+#include <fstream>
 
 namespace Variant {
 
-	shader::shader(std::string& vertexSrc, std::string& fragmentSrc)
+	GLenum stringToGlType(std::string type)
+	{
+		if (type == "vertex")
+			return GL_VERTEX_SHADER;
+		else if (type == "fragment" || "pixel")
+			return GL_FRAGMENT_SHADER;
+		else
+			return 0;
+	}
+
+	shader::shader(std::string filepath)
 		:m_rendererId(0)
 	{
+		std::string result;
+		std::ifstream file(filepath.c_str(), std::ios::in);
+		file.seekg(0, std::ios::end);
+		result.resize(file.tellg());
+		file.seekg(0, std::ios::beg);
+		file.read(&result[0], result.size());
 
-		// Create an empty vertex shader handle
+		int typePos = result.find("#type");
+		int tokenSize = strlen("#type");
+
+		while (typePos != std::string::npos)
+		{
+			int eol = result.find_first_of("\n\r",typePos);
+			GLenum type = stringToGlType(result.substr(typePos + tokenSize + 1, eol - (typePos + tokenSize + 1)));
+			int nextLineStart = eol != std::string::npos ? eol + 1 : std::string::npos;
+			typePos = result.find("#type", nextLineStart);
+		 	m_shaders[type] = result.substr(nextLineStart, typePos != std::string::npos ? typePos - nextLineStart : result.size()-1);
+		}
+		compile(m_shaders[GL_VERTEX_SHADER], m_shaders[GL_FRAGMENT_SHADER]);
+	}
+
+	void shader::compile(std::string& vertexSrc, std::string& fragmentSrc)
+	{
+			// Create an empty vertex shader handle
 		GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
 
 		// Send the vertex shader source code to GL
@@ -119,6 +152,13 @@ namespace Variant {
 		// Always detach shaders after a successful link.
 		glDetachShader(program, vertexShader);
 		glDetachShader(program, fragmentShader);
+	
+	}
+	
+	shader::shader(std::string& vertexSrc, std::string& fragmentSrc)
+		:m_rendererId(0)
+	{
+		compile(vertexSrc, fragmentSrc);
 	}
 
 	shader::~shader()
@@ -140,6 +180,17 @@ namespace Variant {
 	{
 		int uniformId = glGetUniformLocation(m_rendererId, uniformName.c_str());
 		glUniformMatrix4fv(uniformId, 1, false, glm::value_ptr(matrix));
+	}
+
+	void shader::uploadUniformInt(std::string uniformName, int num)
+	{
+		int uniformId = glGetUniformLocation(m_rendererId, uniformName.c_str());
+		glUniform1i(uniformId,num);
+	}
+	void shader::uploadUniformVec4(std::string uniformName, glm::vec4 vec)
+	{
+		int uniformId = glGetUniformLocation(m_rendererId, uniformName.c_str());
+		glUniform4f(uniformId, vec.r, vec.g, vec.b, vec.a);
 	}
 
 }

@@ -25,6 +25,9 @@
     <Filter Include="src">
       <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\OpenGL">
+      <UniqueIdentifier>{C15FA925-AD17-EB72-161F-C4CE02F68563}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Platform">
       <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
     </Filter>
@@ -33,6 +36,12 @@
     </Filter>
     <Filter Include="src\Variant\Events">
       <UniqueIdentifier>{95AA0953-818E-CAA8-EAEE-C4FBD6F1B42A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Variant\Renderer">
+      <UniqueIdentifier>{97B21933-8341-A3FC-2C60-B7F718CEB3A2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Variant\core">
+      <UniqueIdentifier>{E94EFDA3-D547-1CF6-FE79-017BEAD1FB01}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Variant\imgui">
       <UniqueIdentifier>{FB791224-6790-10BA-B007-9CDB1C5DE141}</UniqueIdentifier>
@@ -867,11 +876,26 @@
     <ClInclude Include="Vender\glm\glm\vector_relational.hpp">
       <Filter>Vender\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="src\OpenGL\OpenGLBuffer.h">
+      <Filter>src\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\OpenGL\OpenGLContext.h">
+      <Filter>src\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\OpenGL\OpenGLRendererAPI.h">
+      <Filter>src\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\OpenGL\OpenGLVertexArray.h">
+      <Filter>src\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\windowsInput.h">
       <Filter>src\Platform</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\windowsWindow.h">
       <Filter>src\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant.h">
+      <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\Variant\Events\ApplicationEvent.h">
       <Filter>src\Variant\Events</Filter>
@@ -885,65 +909,123 @@
     <ClInclude Include="src\Variant\Events\mouseEvent.h">
       <Filter>src\Variant\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\Variant\imgui\imguiLayer.h">
-      <Filter>src\Variant\imgui</Filter>
+    <ClInclude Include="src\Variant\Renderer\Buffer.h">
+      <Filter>src\Variant\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\Renderer\GraphicsContext.h">
+      <Filter>src\Variant\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\Renderer\OrthographicCamera.h">
+      <Filter>src\Variant\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\Renderer\Renderer.h">
+      <Filter>src\Variant\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\Renderer\RendererAPI.h">
+      <Filter>src\Variant\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\Renderer\RendererCommand.h">
+      <Filter>src\Variant\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\Renderer\shader.h">
+      <Filter>src\Variant\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\Renderer\vertexArray.h">
+      <Filter>src\Variant\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Variant\core\Application.h">
-      <Filter>src\Variant</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Variant\core\core.h">
-      <Filter>src\Variant</Filter>
+      <Filter>src\Variant\core</Filter>
     </ClInclude>
     <ClInclude Include="src\Variant\core\EntryPoint.h">
-      <Filter>src\Variant</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Variant\core\input.h">
-      <Filter>src\Variant</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Variant\core\keyCodes.h">
-      <Filter>src\Variant</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Variant\core\layer.h">
-      <Filter>src\Variant</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Variant\core\layerStack.h">
-      <Filter>src\Variant</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Variant\core\log.h">
-      <Filter>src\Variant</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Variant\core\mouseCodes.h">
-      <Filter>src\Variant</Filter>
+      <Filter>src\Variant\core</Filter>
     </ClInclude>
     <ClInclude Include="src\Variant\core\Window.h">
-      <Filter>src\Variant</Filter>
+      <Filter>src\Variant\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\core\core.h">
+      <Filter>src\Variant\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\core\deltaTime.h">
+      <Filter>src\Variant\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\core\input.h">
+      <Filter>src\Variant\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\core\keyCodes.h">
+      <Filter>src\Variant\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\core\layer.h">
+      <Filter>src\Variant\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\core\layerStack.h">
+      <Filter>src\Variant\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\core\log.h">
+      <Filter>src\Variant\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\core\mouseCodes.h">
+      <Filter>src\Variant\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\imgui\imguiLayer.h">
+      <Filter>src\Variant\imgui</Filter>
     </ClInclude>
     <ClInclude Include="src\vrpch.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Variant.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Variant\Renderer\GraphicsContext.h" />
-    <ClInclude Include="src\OpenGL\OpenGLContext.h" />
-    <ClInclude Include="src\Variant\Renderer\vertexArray.h" />
-    <ClInclude Include="src\Variant\Renderer\Buffer.h" />
-    <ClInclude Include="src\OpenGL\OpenGLBuffer.h" />
-    <ClInclude Include="src\OpenGL\OpenGLVertexArray.h" />
-    <ClInclude Include="src\Variant\Renderer\shader.h" />
-    <ClInclude Include="src\Variant\Renderer\RendererAPI.h" />
-    <ClInclude Include="src\Variant\Renderer\Renderer.h" />
-    <ClInclude Include="src\Variant\Renderer\RendererCommand.h" />
-    <ClInclude Include="src\OpenGL\OpenGLRendererAPI.h" />
-    <ClInclude Include="src\Variant\Renderer\OrthographicCamera.h" />
-    <ClInclude Include="src\Variant\core\deltaTime.h" />
+    <ClInclude Include="src\Variant\Renderer\OrthographicCameraController.h" />
+    <ClInclude Include="src\Variant\Renderer\Renderer2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\OpenGL\OpenGLBuffer.cpp">
+      <Filter>src\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OpenGL\OpenGLContext.cpp">
+      <Filter>src\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OpenGL\OpenGLRendererAPI.cpp">
+      <Filter>src\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OpenGL\OpenGLVertexArray.cpp">
+      <Filter>src\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\windowsInput.cpp">
       <Filter>src\Platform</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\windowsWindow.cpp">
       <Filter>src\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Variant\Renderer\Buffer.cpp">
+      <Filter>src\Variant\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Variant\Renderer\GraphicsContext.cpp">
+      <Filter>src\Variant\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Variant\Renderer\OrthographicCamera.cpp">
+      <Filter>src\Variant\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Variant\Renderer\Renderer.cpp">
+      <Filter>src\Variant\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Variant\Renderer\RendererAPI.cpp">
+      <Filter>src\Variant\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Variant\Renderer\RendererCommand.cpp">
+      <Filter>src\Variant\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Variant\Renderer\shader.cpp">
+      <Filter>src\Variant\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Variant\Renderer\vertexArray.cpp">
+      <Filter>src\Variant\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Variant\core\Application.cpp">
+      <Filter>src\Variant\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Variant\core\layerStack.cpp">
+      <Filter>src\Variant\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Variant\core\log.cpp">
+      <Filter>src\Variant\core</Filter>
     </ClCompile>
     <ClCompile Include="src\Variant\imgui\imguiBuild.cpp">
       <Filter>src\Variant\imgui</Filter>
@@ -951,29 +1033,10 @@
     <ClCompile Include="src\Variant\imgui\imguiLayer.cpp">
       <Filter>src\Variant\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="src\Variant\core\Application.cpp">
-      <Filter>src\Variant</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Variant\core\layerStack.cpp">
-      <Filter>src\Variant</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Variant\core\log.cpp">
-      <Filter>src\Variant</Filter>
-    </ClCompile>
     <ClCompile Include="src\vrpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\OpenGL\OpenGLContext.cpp" />
-    <ClCompile Include="src\Variant\Renderer\GraphicsContext.cpp" />
-    <ClCompile Include="src\Variant\Renderer\vertexArray.cpp" />
-    <ClCompile Include="src\Variant\Renderer\Buffer.cpp" />
-    <ClCompile Include="src\OpenGL\OpenGLBuffer.cpp" />
-    <ClCompile Include="src\OpenGL\OpenGLVertexArray.cpp" />
-    <ClCompile Include="src\Variant\Renderer\shader.cpp" />
-    <ClCompile Include="src\Variant\Renderer\RendererAPI.cpp" />
-    <ClCompile Include="src\Variant\Renderer\Renderer.cpp" />
-    <ClCompile Include="src\Variant\Renderer\RendererCommand.cpp" />
-    <ClCompile Include="src\OpenGL\OpenGLRendererAPI.cpp" />
-    <ClCompile Include="src\Variant\Renderer\OrthographicCamera.cpp" />
+    <ClCompile Include="src\Variant\Renderer\OrthographicCameraController.cpp" />
+    <ClCompile Include="src\Variant\Renderer\Renderer2D.cpp" />
   </ItemGroup>
 </Project>

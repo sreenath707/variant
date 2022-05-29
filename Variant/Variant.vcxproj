@@ -19,7 +19,7 @@
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Variant</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -131,19 +131,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\OpenGL\OpenGLBuffer.h" />
-    <ClInclude Include="src\OpenGL\OpenGLContext.h" />
-    <ClInclude Include="src\OpenGL\OpenGLRendererAPI.h" />
-    <ClInclude Include="src\OpenGL\OpenGLVertexArray.h" />
-    <ClInclude Include="src\Variant\core\deltaTime.h" />
-    <ClInclude Include="src\Variant\Renderer\Buffer.h" />
-    <ClInclude Include="src\Variant\Renderer\GraphicsContext.h" />
-    <ClInclude Include="src\Variant\Renderer\OrthographicCamera.h" />
-    <ClInclude Include="src\Variant\Renderer\Renderer.h" />
-    <ClInclude Include="src\Variant\Renderer\RendererAPI.h" />
-    <ClInclude Include="src\Variant\Renderer\RendererCommand.h" />
-    <ClInclude Include="src\Variant\Renderer\shader.h" />
-    <ClInclude Include="src\Variant\Renderer\vertexArray.h" />
+    <ClInclude Include="src\Variant\Renderer\OrthographicCameraController.h" />
+    <ClInclude Include="src\Variant\Renderer\Renderer2D.h" />
     <ClInclude Include="Vender\glm\glm\common.hpp" />
     <ClInclude Include="Vender\glm\glm\detail\_features.hpp" />
     <ClInclude Include="Vender\glm\glm\detail\_fixes.hpp" />
@@ -420,24 +409,37 @@
     <ClInclude Include="Vender\glm\glm\vec3.hpp" />
     <ClInclude Include="Vender\glm\glm\vec4.hpp" />
     <ClInclude Include="Vender\glm\glm\vector_relational.hpp" />
+    <ClInclude Include="src\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="src\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\OpenGL\OpenGLRendererAPI.h" />
+    <ClInclude Include="src\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\Platform\windowsInput.h" />
     <ClInclude Include="src\Platform\windowsWindow.h" />
     <ClInclude Include="src\Variant.h" />
-    <ClInclude Include="src\Variant\core\Application.h" />
-    <ClInclude Include="src\Variant\core\EntryPoint.h" />
     <ClInclude Include="src\Variant\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Variant\Events\Event.h" />
     <ClInclude Include="src\Variant\Events\keyEvent.h" />
     <ClInclude Include="src\Variant\Events\mouseEvent.h" />
+    <ClInclude Include="src\Variant\Renderer\Buffer.h" />
+    <ClInclude Include="src\Variant\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Variant\Renderer\OrthographicCamera.h" />
+    <ClInclude Include="src\Variant\Renderer\Renderer.h" />
+    <ClInclude Include="src\Variant\Renderer\RendererAPI.h" />
+    <ClInclude Include="src\Variant\Renderer\RendererCommand.h" />
+    <ClInclude Include="src\Variant\Renderer\shader.h" />
+    <ClInclude Include="src\Variant\Renderer\vertexArray.h" />
+    <ClInclude Include="src\Variant\core\Application.h" />
+    <ClInclude Include="src\Variant\core\EntryPoint.h" />
     <ClInclude Include="src\Variant\core\Window.h" />
     <ClInclude Include="src\Variant\core\core.h" />
-    <ClInclude Include="src\Variant\imgui\imguiLayer.h" />
+    <ClInclude Include="src\Variant\core\deltaTime.h" />
     <ClInclude Include="src\Variant\core\input.h" />
     <ClInclude Include="src\Variant\core\keyCodes.h" />
     <ClInclude Include="src\Variant\core\layer.h" />
     <ClInclude Include="src\Variant\core\layerStack.h" />
     <ClInclude Include="src\Variant\core\log.h" />
     <ClInclude Include="src\Variant\core\mouseCodes.h" />
+    <ClInclude Include="src\Variant\imgui\imguiLayer.h" />
     <ClInclude Include="src\vrpch.h" />
   </ItemGroup>
   <ItemGroup>
@@ -447,19 +449,21 @@
     <ClCompile Include="src\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\Platform\windowsInput.cpp" />
     <ClCompile Include="src\Platform\windowsWindow.cpp" />
-    <ClCompile Include="src\Variant\core\Application.cpp" />
-    <ClCompile Include="src\Variant\imgui\imguiBuild.cpp" />
-    <ClCompile Include="src\Variant\imgui\imguiLayer.cpp" />
-    <ClCompile Include="src\Variant\core\layerStack.cpp" />
-    <ClCompile Include="src\Variant\core\log.cpp" />
     <ClCompile Include="src\Variant\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Variant\Renderer\GraphicsContext.cpp" />
     <ClCompile Include="src\Variant\Renderer\OrthographicCamera.cpp" />
+    <ClCompile Include="src\Variant\Renderer\OrthographicCameraController.cpp" />
     <ClCompile Include="src\Variant\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Variant\Renderer\Renderer2D.cpp" />
     <ClCompile Include="src\Variant\Renderer\RendererAPI.cpp" />
     <ClCompile Include="src\Variant\Renderer\RendererCommand.cpp" />
     <ClCompile Include="src\Variant\Renderer\shader.cpp" />
     <ClCompile Include="src\Variant\Renderer\vertexArray.cpp" />
+    <ClCompile Include="src\Variant\core\Application.cpp" />
+    <ClCompile Include="src\Variant\core\layerStack.cpp" />
+    <ClCompile Include="src\Variant\core\log.cpp" />
+    <ClCompile Include="src\Variant\imgui\imguiBuild.cpp" />
+    <ClCompile Include="src\Variant\imgui\imguiLayer.cpp" />
     <ClCompile Include="src\vrpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

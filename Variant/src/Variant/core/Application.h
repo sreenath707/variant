@@ -19,6 +19,7 @@ namespace Variant {
 		layerStack m_layerstack;
 		std::unique_ptr<imguiLayer> ImLayer;
 		float m_currTime=0;
+		bool OnWindowResize(WindowResizeEvent& e);
 
 		
 	public:

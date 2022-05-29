@@ -19,5 +19,9 @@ namespace Variant{
 		{
 			s_rendererAPI->clearColor();
 		}
+		static void setViewPort(float width, float height)
+		{
+			s_rendererAPI->setViewPort(width, height);
+		}
 	};
 }

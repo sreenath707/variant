@@ -13,11 +13,11 @@ namespace Variant {
 	{
 
 	}
-	void Renderer::submit(std::shared_ptr<vertexArray>& v_vertexArray, std::shared_ptr<shader>& shader)
+	void Renderer::submit(std::shared_ptr<vertexArray>& v_vertexArray, std::shared_ptr<shader>& shader, glm::mat4& transform)
 	{
 		shader->Bind();
 		shader->uploadUniformMat4("u_viewProjection", s_sceneData->viewprojMatrix);
-
+		shader->uploadUniformMat4("u_transform", transform);
 		v_vertexArray->Bind();
 		RendererCommand::drawIndexed(v_vertexArray);
 	}

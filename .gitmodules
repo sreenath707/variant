@@ -1,9 +1,6 @@
 [submodule "Variant/Vender/spdlog"]
 	path = Variant/Vender/spdlog
 	url = https://github.com/gabime/spdlog
-[submodule "Variant/Vender/GLFW"]
-	path = Variant/Vender/GLFW
-	url = https://github.com/sreenath707/GLFW
 [submodule "Variant/Vender/imgui"]
 	path = Variant/Vender/imgui
 	url = https://github.com/sreenath707/imgui

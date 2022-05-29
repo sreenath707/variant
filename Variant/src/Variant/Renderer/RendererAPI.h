@@ -20,6 +20,7 @@ namespace Variant {
 			virtual void drawIndexed(std::shared_ptr<vertexArray> v_vertexArray) = 0;
 			virtual void setColor(glm::vec4 color) = 0;
 			virtual void clearColor()=0;
+			virtual void setViewPort(float width, float height) = 0;
 	};
 
 }
