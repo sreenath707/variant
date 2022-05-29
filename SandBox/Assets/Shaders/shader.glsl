@@ -12,7 +12,7 @@ out vec4 f_color;
 void main()
 {
 	f_color = u_color;
-	gl_Position = u_transform * u_viewProjection * vec4(a_position,1.0);
+	gl_Position =  u_viewProjection * u_transform * vec4(a_position,1.0);
 }
 
 

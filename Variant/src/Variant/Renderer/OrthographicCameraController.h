@@ -8,13 +8,13 @@ namespace Variant {
 	class OrthographicCameraController
 	{
 	private:
+		float m_aspectRatio = 16.0f / 9.0f;
 		float m_zoomlevel=1;
 		glm::vec3 m_cameraPosition = { 0.0,0.0,0.0 };
 		float m_cameraRotation = 0;
 		OrthographicCamera m_camera;
 		float m_translationSpeed = 1.0f;
 		float m_roationSpeed = 1.0f;
-		float m_aspectRatio = 16.0f / 9.0f;
 		bool m_isRotation;
 
 	public:

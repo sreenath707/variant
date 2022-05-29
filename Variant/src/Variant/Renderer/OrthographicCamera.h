@@ -14,7 +14,7 @@ namespace Variant {
 
 		inline glm::vec3 getPosition() { return m_position; }
 		inline glm::mat4 getProjectionView() { return m_ViewProjection; }
-		void setProjectionMatrix(float left, float right, float up, float down);
+		void setProjectionMatrix(float left, float right, float down, float up);
 
 	private:
 		void RecalculateMatrix();

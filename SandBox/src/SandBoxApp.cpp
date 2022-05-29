@@ -42,8 +42,8 @@ public:
 		Variant::Renderer2D::BeginScene(m_cameraController.getCamera());
 		Variant::RendererCommand::clearColor();
 		Variant::RendererCommand::setColor({ 0.1,0.1,0.1,1.0 });
-		Variant::Renderer2D::DrawQuad({ 0.0f,0.0f,0.0f }, { 1.0f,1.0f }, 0, { 1.0f,0.2f,0.3f,1.0f });	
-		Variant::Renderer2D::DrawQuad({ 0.7f,-0.2f,0.0f }, { 0.7f,1.0f }, 0, { 0.3f,0.1f,1.0f,1.0f });
+		Variant::Renderer2D::DrawQuad({ 0.0f,0.0f,0.0f }, { 0.5f,0.5f }, 0, { 1.0f,0.2f,0.3f,1.0f });	
+		Variant::Renderer2D::DrawQuad({ 0.7f,-0.2f,0.0f }, { 0.5f,0.5f }, 0, { 0.3f,0.1f,1.0f,1.0f });
 		Variant::Renderer2D::EndScene();
 	}
 };

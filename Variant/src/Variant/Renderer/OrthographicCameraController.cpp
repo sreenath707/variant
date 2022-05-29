@@ -6,7 +6,7 @@
 
 namespace Variant {
 	OrthographicCameraController::OrthographicCameraController(float aspectRatio,bool isRotation )
-		:m_aspectRatio(aspectRatio),m_camera(-m_zoomlevel * aspectRatio,m_zoomlevel* aspectRatio,-m_zoomlevel,m_zoomlevel),m_isRotation(isRotation)
+		:m_aspectRatio(aspectRatio),m_camera(-m_zoomlevel, m_zoomlevel, -m_zoomlevel / m_aspectRatio, m_zoomlevel / m_aspectRatio),m_isRotation(isRotation)
 	{
 		
 	}
@@ -44,9 +44,9 @@ namespace Variant {
 
 	bool OrthographicCameraController::OnMouseScrolled(mouseScrollEvent& e)
 	{
-		m_zoomlevel -= e.GetYOffset()*0.1;
+		m_zoomlevel -= e.GetYOffset()*0.1;	
 		m_zoomlevel = std::max(m_zoomlevel, 0.25f);
-		m_camera.setProjectionMatrix(-m_zoomlevel*m_aspectRatio, m_zoomlevel * m_aspectRatio, -m_zoomlevel , m_zoomlevel);
+		m_camera.setProjectionMatrix(-m_zoomlevel, m_zoomlevel, -m_zoomlevel/m_aspectRatio , m_zoomlevel/m_aspectRatio);
 		return true;
 	}
 }
