@@ -1,5 +1,6 @@
 #pragma once
 #include "Variant/Renderer/OrthographicCamera.h"
+#include "Variant/Renderer/Texture.h"
 
 namespace Variant {
 
@@ -12,5 +13,6 @@ namespace Variant {
 		static void EndScene();
 
 		static void DrawQuad(glm::vec3 position, glm::vec2 size,float rotation, glm::vec4 color);
+		static void DrawTexture(glm::vec3 position, glm::vec2 size, float rotation,std::shared_ptr<Texture>  texture);
 	};
 }

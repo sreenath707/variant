@@ -8,10 +8,11 @@
 namespace Variant {
 
 	struct RendererData {
-		std::shared_ptr<Variant::vertexBuffer> vertexBuffer;
-		std::shared_ptr<Variant::indexBuffer> indexBuffer;
-		std::shared_ptr<Variant::vertexArray> vertexArray;
-		std::shared_ptr<Variant::shader> shader;
+		std::shared_ptr<vertexBuffer> vertexBuffer;
+		std::shared_ptr<indexBuffer> indexBuffer;
+		std::shared_ptr<vertexArray> vertexArray;
+		std::shared_ptr<shader> s_shader;
+		std::shared_ptr<shader> texShader;
 	};
 
 	RendererData* s_rendererData = new RendererData();
@@ -21,19 +22,20 @@ namespace Variant {
 		
 		s_rendererData->vertexArray.reset(Variant::vertexArray::Create());
 
-		float vertices[4 * 3] =
+		float vertices[4 * 5] =
 		{
-			0.5f,0.5f,0.0f,
-			-0.5f,0.5f,0.0f,
-			-0.5f,-0.5f,0.0f,
-			 0.5f,-0.5f,0.0f
+			0.5f,0.5f,0.0f,   0.0,0.0,
+			-0.5f,0.5f,0.0f,  1.0,0.0,
+			-0.5f,-0.5f,0.0f, 1.0,1.0,
+			 0.5f,-0.5f,0.0f, 0.0,1.0,
 		};
 
-		s_rendererData->vertexBuffer.reset(Variant::vertexBuffer::Create(vertices, sizeof(vertices)));
+		s_rendererData->vertexBuffer.reset(vertexBuffer::Create(vertices, sizeof(vertices)));
 		s_rendererData->vertexBuffer->Bind();
 
-		Variant::BufferLayout layout = {
-			{Variant::shaderDataType::Float3,"position"}
+		BufferLayout layout = {
+			{shaderDataType::Float3,"position"},
+			{shaderDataType::Float2,"textCoords"}
 		};
 
 		s_rendererData->vertexBuffer->setLayout(layout);
@@ -41,11 +43,13 @@ namespace Variant {
 
 
 		unsigned int indices[6] = { 0,1,2,2,3,0 };
-		s_rendererData->indexBuffer.reset(Variant::indexBuffer::Create(indices, 6));
+		s_rendererData->indexBuffer.reset(indexBuffer::Create(indices, 6));
 		s_rendererData->indexBuffer->Bind();
 		s_rendererData->vertexArray->SetIndexBuffer(s_rendererData->indexBuffer);
 
-		s_rendererData->shader.reset(new Variant::shader("Assets/Shaders/shader.glsl"));
+		s_rendererData->s_shader.reset(new shader("Assets/Shaders/shader.glsl"));
+		s_rendererData->texShader.reset(new shader("Assets/Shaders/textureShader.glsl"));
+
 	}
 	void Renderer2D::ShutDown()
 	{
@@ -53,8 +57,10 @@ namespace Variant {
 	}
 	void Renderer2D::BeginScene(OrthographicCamera& camera)
 	{
-		s_rendererData->shader->Bind();
-		s_rendererData->shader->uploadUniformMat4("u_viewProjection", camera.getProjectionView());
+		s_rendererData->s_shader->Bind();
+		s_rendererData->s_shader->uploadUniformMat4("u_viewProjection", camera.getProjectionView());
+		s_rendererData->texShader->Bind();
+		s_rendererData->texShader->uploadUniformMat4("u_viewProjection", camera.getProjectionView());
 	}
 	void Renderer2D::EndScene()
 	{
@@ -62,12 +68,24 @@ namespace Variant {
 	void Renderer2D::DrawQuad(glm::vec3 position, glm::vec2 size,float rotation, glm::vec4 color)
 	{
 		s_rendererData->vertexArray->Bind();
-		s_rendererData->shader->Bind();
+		s_rendererData->s_shader->Bind();
 		glm::mat4 transformMatrix = glm::translate(glm::mat4(1.0), position) 
 			* glm::rotate(glm::mat4(1.0), glm::radians(rotation), glm::vec3(0.0f,0.0f,1.0f)) 
 			* glm::scale(glm::mat4(1.0), glm::vec3(size, 1.0));
-		s_rendererData->shader->uploadUniformMat4("u_transform", transformMatrix);
-		s_rendererData->shader->uploadUniformVec4("u_color", color);
+		s_rendererData->s_shader->uploadUniformMat4("u_transform", transformMatrix);
+		s_rendererData->s_shader->uploadUniformVec4("u_color", color);
+		RendererCommand::drawIndexed(s_rendererData->vertexArray);
+	}
+	void Renderer2D::DrawTexture(glm::vec3 position, glm::vec2 size, float rotation, std::shared_ptr<Texture> texture)
+	{
+		s_rendererData->vertexArray->Bind();
+		s_rendererData->texShader->Bind();
+		glm::mat4 transformMatrix = glm::translate(glm::mat4(1.0), position)
+			* glm::rotate(glm::mat4(1.0), glm::radians(rotation), glm::vec3(0.0f, 0.0f, 1.0f))
+			* glm::scale(glm::mat4(1.0), glm::vec3(size, 1.0));
+		s_rendererData->texShader->uploadUniformMat4("u_transform", transformMatrix);
+		texture->Bind();
+		s_rendererData->texShader->uploadUniformInt("u_texture", 0);
 		RendererCommand::drawIndexed(s_rendererData->vertexArray);
 	}
 }

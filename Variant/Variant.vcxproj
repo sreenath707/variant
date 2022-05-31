@@ -133,6 +133,8 @@
   <ItemGroup>
     <ClInclude Include="src\Variant\Renderer\OrthographicCameraController.h" />
     <ClInclude Include="src\Variant\Renderer\Renderer2D.h" />
+    <ClInclude Include="src\Variant\Renderer\stb_image.h" />
+    <ClInclude Include="src\Variant\Renderer\Texture.h" />
     <ClInclude Include="Vender\glm\glm\common.hpp" />
     <ClInclude Include="Vender\glm\glm\detail\_features.hpp" />
     <ClInclude Include="Vender\glm\glm\detail\_fixes.hpp" />
@@ -458,6 +460,7 @@
     <ClCompile Include="src\Variant\Renderer\RendererAPI.cpp" />
     <ClCompile Include="src\Variant\Renderer\RendererCommand.cpp" />
     <ClCompile Include="src\Variant\Renderer\shader.cpp" />
+    <ClCompile Include="src\Variant\Renderer\Texture.cpp" />
     <ClCompile Include="src\Variant\Renderer\vertexArray.cpp" />
     <ClCompile Include="src\Variant\core\Application.cpp" />
     <ClCompile Include="src\Variant\core\layerStack.cpp" />

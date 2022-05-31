@@ -1,4 +1,3 @@
-
 #type vertex
 #version 330 core
 layout(location=0) in vec3 a_position;
@@ -7,7 +6,6 @@ uniform vec4 u_color;
 uniform mat4 u_viewProjection;
 uniform mat4 u_transform;
 
-out vec3 v_position;
 out vec4 f_color;
 void main()
 {
