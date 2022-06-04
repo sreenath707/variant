@@ -12,10 +12,11 @@ namespace Variant {
 		std::shared_ptr<indexBuffer> indexBuffer;
 		std::shared_ptr<vertexArray> vertexArray;
 		std::shared_ptr<shader> s_shader;
-		std::shared_ptr<shader> texShader;
+		std::shared_ptr<Texture> whiteTexture;
 	};
 
 	RendererData* s_rendererData = new RendererData();
+	
 
 	void Renderer2D::Init()
 	{
@@ -48,7 +49,8 @@ namespace Variant {
 		s_rendererData->vertexArray->SetIndexBuffer(s_rendererData->indexBuffer);
 
 		s_rendererData->s_shader.reset(new shader("Assets/Shaders/shader.glsl"));
-		s_rendererData->texShader.reset(new shader("Assets/Shaders/textureShader.glsl"));
+
+		s_rendererData->whiteTexture.reset(new Texture(glm::vec4(1.0)));
 
 	}
 	void Renderer2D::ShutDown()
@@ -59,8 +61,6 @@ namespace Variant {
 	{
 		s_rendererData->s_shader->Bind();
 		s_rendererData->s_shader->uploadUniformMat4("u_viewProjection", camera.getProjectionView());
-		s_rendererData->texShader->Bind();
-		s_rendererData->texShader->uploadUniformMat4("u_viewProjection", camera.getProjectionView());
 	}
 	void Renderer2D::EndScene()
 	{
@@ -68,24 +68,29 @@ namespace Variant {
 	void Renderer2D::DrawQuad(glm::vec3 position, glm::vec2 size,float rotation, glm::vec4 color)
 	{
 		s_rendererData->vertexArray->Bind();
-		s_rendererData->s_shader->Bind();
+		s_rendererData->whiteTexture->Bind();
+
 		glm::mat4 transformMatrix = glm::translate(glm::mat4(1.0), position) 
 			* glm::rotate(glm::mat4(1.0), glm::radians(rotation), glm::vec3(0.0f,0.0f,1.0f)) 
 			* glm::scale(glm::mat4(1.0), glm::vec3(size, 1.0));
 		s_rendererData->s_shader->uploadUniformMat4("u_transform", transformMatrix);
+		s_rendererData->s_shader->uploadUniformInt("u_texture", 0);
 		s_rendererData->s_shader->uploadUniformVec4("u_color", color);
+
 		RendererCommand::drawIndexed(s_rendererData->vertexArray);
 	}
 	void Renderer2D::DrawTexture(glm::vec3 position, glm::vec2 size, float rotation, std::shared_ptr<Texture> texture)
 	{
 		s_rendererData->vertexArray->Bind();
-		s_rendererData->texShader->Bind();
+		texture->Bind();
+
 		glm::mat4 transformMatrix = glm::translate(glm::mat4(1.0), position)
 			* glm::rotate(glm::mat4(1.0), glm::radians(rotation), glm::vec3(0.0f, 0.0f, 1.0f))
 			* glm::scale(glm::mat4(1.0), glm::vec3(size, 1.0));
-		s_rendererData->texShader->uploadUniformMat4("u_transform", transformMatrix);
-		texture->Bind();
-		s_rendererData->texShader->uploadUniformInt("u_texture", 0);
+		s_rendererData->s_shader->uploadUniformMat4("u_transform", transformMatrix);
+		s_rendererData->s_shader->uploadUniformInt("u_texture", 0);
+		s_rendererData->s_shader->uploadUniformVec4("u_color", {1,1,1,1});
+
 		RendererCommand::drawIndexed(s_rendererData->vertexArray);
 	}
 }
