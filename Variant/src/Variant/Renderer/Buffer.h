@@ -104,7 +104,9 @@ namespace Variant {
 		BufferLayout m_layout;
 	public:
 		static vertexBuffer* Create(void* vertices, unsigned int size);
+		static vertexBuffer* Create(unsigned int size);
 
+		virtual void vertexBuffer::setData(void* data, unsigned int size)=0;
 		virtual void Bind() = 0;
 		virtual void unbind() = 0;
 		vertexBuffer() = default;

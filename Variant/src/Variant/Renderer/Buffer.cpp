@@ -18,6 +18,20 @@ namespace Variant {
 		}
 	}
 
+	vertexBuffer* vertexBuffer::Create(unsigned int size)
+	{
+		switch (RendererAPI::getAPI())
+		{
+		case RendererAPI::API::None: VR_core_error("None is not supported!");
+			return nullptr;
+			break;
+		case RendererAPI::API::OpenGL: return new OpenGLVertexBuffer(size);
+			break;
+		default:
+			return nullptr;
+		}
+	}
+
 
 	
 	indexBuffer* indexBuffer::Create(void* indices, unsigned int size)
@@ -34,6 +48,8 @@ namespace Variant {
 		}
 		
 	}
+
+
 
 }
 

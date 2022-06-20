@@ -4,9 +4,9 @@
 
 
 namespace Variant {
-	void OpenGLRendererAPI::drawIndexed(std::shared_ptr<vertexArray> v_vertexArray)
+	void OpenGLRendererAPI::drawIndexed(std::shared_ptr<vertexArray> v_vertexArray, int count=0)
 	{
-		glDrawElements(GL_TRIANGLES, v_vertexArray->getIndexBuffer()->getCount(), GL_UNSIGNED_INT, nullptr);
+		glDrawElements(GL_TRIANGLES, count? count : v_vertexArray->getIndexBuffer()->getCount(), GL_UNSIGNED_INT, nullptr);
 	}
 	void OpenGLRendererAPI::setColor(glm::vec4 color)
 	{

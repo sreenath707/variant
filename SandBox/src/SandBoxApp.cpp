@@ -30,7 +30,13 @@ public:
 	}
 	void OnImGuiRender()override
 	{
-
+		ImGui::Begin("Transform test");
+		ImGui::Text("hello world");
+		if (ImGui::Button("click", {10, 10}))
+		{
+			std::cout << "clicked" << std::endl;
+		}
+		ImGui::End();
 	}
 	void OnEvent(Variant::Event& event)
 	{
@@ -45,7 +51,7 @@ public:
 		Variant::RendererCommand::clearColor();
 		Variant::RendererCommand::setColor({ 0.1,0.1,0.1,1.0 });
 		Variant::Renderer2D::DrawQuad({ 0.0f,0.0f,0.0f }, { 0.5f,0.5f }, 0, { 1.0f,0.2f,0.3f,1.0f });	
-		Variant::Renderer2D::DrawTexture({ 0.7f,-0.2f,0.0f }, { 0.5f,0.5f }, 0, m_texture);
+		//Variant::Renderer2D::DrawTexture({ 0.7f,-0.2f,0.0f }, { 0.5f,0.5f }, 0, m_texture);
 		Variant::Renderer2D::EndScene();
 	}
 };
