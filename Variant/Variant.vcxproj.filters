@@ -976,6 +976,8 @@
     <ClInclude Include="src\Variant\Renderer\Renderer2D.h" />
     <ClInclude Include="src\Variant\Renderer\Texture.h" />
     <ClInclude Include="src\Variant\Renderer\stb_image.h" />
+    <ClInclude Include="src\Variant\Renderer\FrameBuffer.h" />
+    <ClInclude Include="src\OpenGL\OpenGLFrameBuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\OpenGL\OpenGLBuffer.cpp">
@@ -1041,5 +1043,7 @@
     <ClCompile Include="src\Variant\Renderer\OrthographicCameraController.cpp" />
     <ClCompile Include="src\Variant\Renderer\Renderer2D.cpp" />
     <ClCompile Include="src\Variant\Renderer\Texture.cpp" />
+    <ClCompile Include="src\Variant\Renderer\FrameBuffer.cpp" />
+    <ClCompile Include="src\OpenGL\OpenGLFrameBuffer.cpp" />
   </ItemGroup>
 </Project>

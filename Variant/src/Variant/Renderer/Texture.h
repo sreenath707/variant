@@ -10,7 +10,11 @@ namespace Variant {
 		Texture(std::string path);
 		Texture(glm::vec4 color);
 		~Texture();
+
+		unsigned int getTextureId() { return m_rendererid; }
+
 		void Bind();
+		void Unbind();
 	};
 
 }

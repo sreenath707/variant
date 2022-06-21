@@ -23,6 +23,7 @@
 #include "Variant/Renderer/RendererCommand.h"
 #include "Variant/Renderer/OrthographicCamera.h"
 #include "Variant/Renderer/Texture.h"
+#include "Variant/Renderer/FrameBuffer.h"
 
 #include "Variant/Renderer/OrthographicCameraController.h"
 

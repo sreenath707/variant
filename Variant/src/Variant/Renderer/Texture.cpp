@@ -54,4 +54,9 @@ namespace Variant {
 		glBindTexture(GL_TEXTURE_2D, m_rendererid);
 	}
 
+	void Texture::Unbind()
+	{
+		glBindTexture(GL_TEXTURE_2D, 0);
+	}
+
 }

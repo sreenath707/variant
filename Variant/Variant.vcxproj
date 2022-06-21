@@ -131,6 +131,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\OpenGL\OpenGLFrameBuffer.h" />
+    <ClInclude Include="src\Variant\Renderer\FrameBuffer.h" />
     <ClInclude Include="src\Variant\Renderer\OrthographicCameraController.h" />
     <ClInclude Include="src\Variant\Renderer\Renderer2D.h" />
     <ClInclude Include="src\Variant\Renderer\stb_image.h" />
@@ -447,11 +449,13 @@
   <ItemGroup>
     <ClCompile Include="src\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\OpenGL\OpenGLFrameBuffer.cpp" />
     <ClCompile Include="src\OpenGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="src\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\Platform\windowsInput.cpp" />
     <ClCompile Include="src\Platform\windowsWindow.cpp" />
     <ClCompile Include="src\Variant\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Variant\Renderer\FrameBuffer.cpp" />
     <ClCompile Include="src\Variant\Renderer\GraphicsContext.cpp" />
     <ClCompile Include="src\Variant\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\Variant\Renderer\OrthographicCameraController.cpp" />
