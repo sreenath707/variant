@@ -49,5 +49,10 @@ namespace Variant {
 		m_camera.setProjectionMatrix(-m_zoomlevel, m_zoomlevel, -m_zoomlevel/m_aspectRatio , m_zoomlevel/m_aspectRatio);
 		return true;
 	}
+	void OrthographicCameraController::SetAspectRatio(float aspcetRatio)
+	{
+		m_aspectRatio = aspcetRatio;
+		m_camera.setProjectionMatrix(-m_zoomlevel, m_zoomlevel, -m_zoomlevel / m_aspectRatio, m_zoomlevel / m_aspectRatio);
+	}
 }
 

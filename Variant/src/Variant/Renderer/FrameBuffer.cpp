@@ -4,7 +4,7 @@
 #include "OpenGL/OpenGLFrameBuffer.h"
 
 namespace Variant {
-	FrameBuffer* FrameBuffer::Create(unsigned int width, unsigned int height)
+	FrameBuffer* FrameBuffer::Create(float width, float height)
 	{
 		switch (RendererAPI::getAPI())
 		{

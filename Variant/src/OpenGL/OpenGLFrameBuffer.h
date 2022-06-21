@@ -12,10 +12,11 @@ namespace Variant {
 		unsigned int m_deapthBuffer;
 
 	public:
-		OpenGLFrameBuffer(int width, int height);
+		OpenGLFrameBuffer(float width, float height);
 		
 		virtual void Bind() override;
 		virtual void Unbind() override;
 		virtual unsigned int getColorBufferId() override;
+		virtual void reValidate(float width, float height) override;
 	};
 }

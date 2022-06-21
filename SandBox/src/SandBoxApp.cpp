@@ -10,7 +10,8 @@ private:
 	Variant::OrthographicCameraController m_cameraController;
 	std::shared_ptr<Variant::Texture> m_texture;
     std::shared_ptr<Variant::FrameBuffer> m_frameBuffer;
-
+    float m_viewPortWidth = 1280;
+    float m_viewPortHeight = 720;
 
 public:
 
@@ -19,7 +20,7 @@ public:
 	{
 		Variant::Renderer2D::Init();
 		m_texture.reset(new Variant::Texture("Assets/Textures/batman.jpg"));
-        m_frameBuffer.reset(Variant::FrameBuffer::Create(1280, 720));
+        m_frameBuffer.reset(Variant::FrameBuffer::Create(m_viewPortWidth, m_viewPortWidth));
 	}
 
 	virtual void OnAttach()override
@@ -110,23 +111,32 @@ public:
         }
 
 
+        ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, { 0,0 });
         ImGui::Begin("ViewPort");
-
+        ImVec2 size = ImGui::GetContentRegionAvail();
+        if (size.x != m_viewPortWidth || size.y != m_viewPortHeight)
+        {
+            m_viewPortWidth = size.x;
+            m_viewPortHeight = size.y;
+            m_frameBuffer->reValidate(m_viewPortWidth, m_viewPortHeight);
+            m_cameraController.SetAspectRatio(m_viewPortWidth / m_viewPortHeight);
+        }
         unsigned int texture = m_frameBuffer->getColorBufferId();
-        ImGui::Image((void*)texture, { 1280,720 }, { 0,1 }, { 1,0 });
-
+        ImGui::Image((void*)texture, { m_viewPortWidth,m_viewPortHeight }, { 0,1 }, { 1,0 });
         ImGui::End();
-
-        ImGui::End();
+        ImGui::PopStyleVar();
 
 		bool show = true;
-
 		ImGui::ShowDemoWindow(&show);
+        ImGui::End();
+
+
 	}
 	void OnEvent(Variant::Event& event)
 	{
 		m_cameraController.OnEvent(event);
 	}
+
     virtual void OnUpdate(Variant::deltaTime dt)
     {
         m_frameBuffer->Bind();

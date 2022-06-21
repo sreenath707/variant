@@ -24,5 +24,6 @@ namespace Variant {
 		inline OrthographicCamera getCamera()const { return m_camera; }
 		void OnEvent(Event& e);
 		bool OnMouseScrolled(mouseScrollEvent& e);
+		void SetAspectRatio(float aspcetRatio);
 	};
 }

@@ -7,9 +7,10 @@ namespace Variant {
 	private:
 		
 	public:
-		static FrameBuffer* Create(unsigned int width, unsigned int height);
+		static FrameBuffer* Create(float width, float height);
 		virtual void Bind() = 0;
 		virtual void Unbind() = 0;
 		virtual unsigned int getColorBufferId() = 0;
+		virtual void reValidate(float width, float height) = 0;
 	};
 }

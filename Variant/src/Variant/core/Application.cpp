@@ -69,7 +69,7 @@ namespace Variant {
 
 	bool Application::OnWindowResize(WindowResizeEvent& e)
 	{
-		RendererCommand::setViewPort(e.GetWidth(), e.GetHeight());
+		//RendererCommand::setViewPort(e.GetWidth(), e.GetHeight());
 		return false;
 	}
 
