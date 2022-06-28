@@ -2,7 +2,7 @@
 #include "vrpch.h"
 #include "glad/glad.h"
 #include "log.h"
-#include "GLFW/glfw3.h"
+#include <GLFW/glfw3.h>
 #include "Variant/Events/Event.h"
 #include "Variant/Events/ApplicationEvent.h"
 

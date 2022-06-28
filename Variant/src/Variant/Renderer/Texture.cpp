@@ -31,16 +31,17 @@ namespace Variant {
 
 	Texture::Texture(glm::vec4 color)
 	{
-		GLubyte texData[4] = { 255*color.r, 255*color.g, 255*color.b, 255*color.a };
-
+        float texData[4] = { color.r, color.g, color.b, color.a };
 		glGenTextures(1, &m_rendererid);
+        std::cout<<texData[0]<<" "<<texData[1]<<" "<<texData[2]<<std::endl;
 		Bind();
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        
 
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 1, 1, 0, GL_RGB, GL_UNSIGNED_BYTE, texData);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 1, 1, 0, GL_RGB, GL_FLOAT, (GLvoid*)texData);
 		glGenerateMipmap(GL_TEXTURE_2D);
 	}
 

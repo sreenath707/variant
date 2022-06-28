@@ -72,7 +72,6 @@ namespace Variant {
 			// Use the infoLog as you see fit.
 			VR_core_error("shader compilation failed!!");
 			std::cout << infoLog.data();
-			VR_ASSERT(false);
 
 			// In this simple program, we'll just leave
 			return;
@@ -143,7 +142,6 @@ namespace Variant {
 
 			// Use the infoLog as you see fit.
 			VR_core_error("shader compilation failed!!");
-			VR_ASSERT(false);
 
 			// In this simple program, we'll just leave
 			return;

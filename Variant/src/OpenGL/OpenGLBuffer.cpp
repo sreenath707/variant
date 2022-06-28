@@ -5,7 +5,7 @@ namespace Variant {
 	 OpenGLVertexBuffer::OpenGLVertexBuffer(void* vertices ,unsigned int size)
 		:m_rendererId(0)
 	{
-		glCreateBuffers(1, &m_rendererId);
+		glGenBuffers(1, &m_rendererId);
 		Bind();
 		glBufferData(GL_ARRAY_BUFFER, size, vertices, GL_STATIC_DRAW);
 	}
@@ -24,7 +24,7 @@ namespace Variant {
 		:m_count(count)
 	{
 
-		glCreateBuffers(1, &m_rendererId);
+        glGenBuffers(1, &m_rendererId);
 		Bind();
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, count*sizeof(unsigned int), indices, GL_STATIC_DRAW);
 

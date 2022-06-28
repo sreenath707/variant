@@ -1,4 +1,3 @@
-#include "..\..\Variant\src\Variant\core\Application.h"
 #include <variant.h>
 #include <glm/glm.hpp>
 
@@ -19,7 +18,7 @@ public:
 		:layer("exampleLayer"), m_cameraController(16.0f / 9.0f, false)
 	{
 		Variant::Renderer2D::Init();
-		m_texture.reset(new Variant::Texture("Assets/Textures/batman.jpg"));
+		m_texture.reset(new Variant::Texture("/Users/sreenath707/Developer/projects/variant/SandBox/Assets/Textures/batman.jpg"));
         m_frameBuffer.reset(Variant::FrameBuffer::Create(m_viewPortWidth, m_viewPortWidth));
 	}
 
@@ -145,7 +144,7 @@ public:
         Variant::Renderer2D::BeginScene(m_cameraController.getCamera());
         Variant::RendererCommand::clearColor();
         Variant::RendererCommand::setColor({ 0.1,0.1,0.1,1.0 });
-        Variant::Renderer2D::DrawQuad({ 0.0f,0.0f,0.0f }, { 0.5f,0.5f }, 0, { 1.0f,0.2f,0.3f,1.0f });
+        Variant::Renderer2D::DrawQuad({ 0.0f,0.0f,0.0f }, { 0.5f,0.5f }, 0, { 1.0f,0.3f,0.5f,1.0f });
         Variant::Renderer2D::DrawTexture({ 0.7f,-0.2f,0.0f }, { 0.5f,0.5f }, 0, m_texture);
         Variant::Renderer2D::EndScene();
         m_frameBuffer->Unbind();

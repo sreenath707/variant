@@ -38,7 +38,7 @@ namespace Variant {
 			  m_data.callback = callback;
 		  }
 
-		  void init(windowProps& props = windowProps(1280,720));
+		  void init(const windowProps& props = windowProps(1280,720));
 		  void update()override;
 	};
 }

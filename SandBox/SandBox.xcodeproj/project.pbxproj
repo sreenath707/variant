@@ -1,0 +1,361 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		21838473286B036A00D32F4B /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 21838472286B036A00D32F4B /* libglfw.3.3.dylib */; };
+		865C2882CAAACDF40CD206C2 /* SandBoxApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D773028AF93EAFBC35F3D8CA /* SandBoxApp.cpp */; };
+		F127F797D6BEFEC99A040DD7 /* libVariant.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0A9B95F4AAAD05111F1C79F /* libVariant.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		083DADD75ECB184937442C17 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C9FA7F9F32D9F6B612FC639 /* Variant.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6D2C04A46DDF0196E1C0D2E4;
+			remoteInfo = libVariant.a;
+		};
+		5A782070B1058AE2897E9EB0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C9FA7F9F32D9F6B612FC639 /* Variant.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2473D80AC761FEBC5687DE4A;
+			remoteInfo = libVariant.a;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9DEA5E544135E7865C06B494 /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		21838472286B036A00D32F4B /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../../opt/homebrew/Cellar/glfw/3.3.7/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
+		2C9FA7F9F32D9F6B612FC639 /* Variant.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Variant.xcodeproj; path = ../Variant/Variant.xcodeproj; sourceTree = SOURCE_ROOT; };
+		360AFA78DA5D982AEC95E0B8 /* SandBox */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SandBox; sourceTree = BUILT_PRODUCTS_DIR; };
+		D773028AF93EAFBC35F3D8CA /* SandBoxApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = SandBoxApp.cpp; path = src/SandBoxApp.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		91B273E8E1C6089A64443A28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21838473286B036A00D32F4B /* libglfw.3.3.dylib in Frameworks */,
+				F127F797D6BEFEC99A040DD7 /* libVariant.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		21838471286B036A00D32F4B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21838472286B036A00D32F4B /* libglfw.3.3.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2C535C3774C44069B9631277 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F0A9B95F4AAAD05111F1C79F /* libVariant.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9D968EAA920D05DCE0E0A4EA /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				2C9FA7F9F32D9F6B612FC639 /* Variant.xcodeproj */,
+			);
+			name = Projects;
+			sourceTree = "<group>";
+		};
+		A6C936B49B3FADE6EA134CF4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				360AFA78DA5D982AEC95E0B8 /* SandBox */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C901C04F5C0D1941A4420E8F /* SandBox */ = {
+			isa = PBXGroup;
+			children = (
+				D773028AF93EAFBC35F3D8CA /* SandBoxApp.cpp */,
+				A6C936B49B3FADE6EA134CF4 /* Products */,
+				9D968EAA920D05DCE0E0A4EA /* Projects */,
+				21838471286B036A00D32F4B /* Frameworks */,
+			);
+			name = SandBox;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		87A1635E945E12D00948819E /* SandBox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7FEDBC47D00150F9527F8287 /* Build configuration list for PBXNativeTarget "SandBox" */;
+			buildPhases = (
+				0199F48851AD893AD42BBAC8 /* Resources */,
+				6B470DDFBB5AA2913DD8D41F /* Sources */,
+				91B273E8E1C6089A64443A28 /* Frameworks */,
+				9DEA5E544135E7865C06B494 /* Embed Libraries */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1A0B9940627C7D72A71B4F80 /* PBXTargetDependency */,
+			);
+			name = SandBox;
+			productInstallPath = "$(HOME)/bin";
+			productName = SandBox;
+			productReference = 360AFA78DA5D982AEC95E0B8 /* SandBox */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+			};
+			buildConfigurationList = 1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "SandBox" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C901C04F5C0D1941A4420E8F /* SandBox */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2C535C3774C44069B9631277 /* Products */;
+					ProjectRef = 2C9FA7F9F32D9F6B612FC639 /* Variant.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				87A1635E945E12D00948819E /* SandBox */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		F0A9B95F4AAAD05111F1C79F /* libVariant.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libVariant.a;
+			remoteRef = 083DADD75ECB184937442C17 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0199F48851AD893AD42BBAC8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6B470DDFBB5AA2913DD8D41F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				865C2882CAAACDF40CD206C2 /* SandBoxApp.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1A0B9940627C7D72A71B4F80 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = libVariant.a;
+			targetProxy = 5A782070B1058AE2897E9EB0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		10273B78B479D92AC6B221B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++1z";
+				CONFIGURATION_BUILD_DIR = "$(SYMROOT)";
+				CONFIGURATION_TEMP_DIR = "$(OBJROOT)";
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = VR_RELEASE;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OBJROOT = "../bin/Release-macosx-x86_64/SandBox";
+				ONLY_ACTIVE_ARCH = NO;
+				SYMROOT = "../bin/Release-macosx-x86_64/SandBox";
+				USER_HEADER_SEARCH_PATHS = "../Variant/Vender/spdlog/include ../Variant/src ../Variant/Vender/GLFW/include ../Variant/vender/glad/include ../Variant/vender/imgui ../Variant/vender/glm";
+			};
+			name = Release;
+		};
+		5D59F9BE00A582F01B764FFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++1z";
+				CONFIGURATION_BUILD_DIR = "$(SYMROOT)";
+				CONFIGURATION_TEMP_DIR = "$(OBJROOT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = VR_DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OBJROOT = "../bin/Debug-macosx-x86_64/SandBox";
+				ONLY_ACTIVE_ARCH = YES;
+				SYMROOT = "../bin/Debug-macosx-x86_64/SandBox";
+				USER_HEADER_SEARCH_PATHS = "../Variant/Vender/spdlog/include ../Variant/src ../Variant/Vender/GLFW/include ../Variant/vender/glad/include ../Variant/vender/imgui ../Variant/vender/glm";
+			};
+			name = Debug;
+		};
+		81EB973A7B5198AC6EECF57A /* Dist */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CONFIGURATION_BUILD_DIR = "../bin/Dist-macosx-x86_64/SandBox";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_DYNAMIC_NO_PIC = NO;
+				HEADER_SEARCH_PATHS = (
+					../Variant/Vender/spdlog/include,
+					../Variant/src,
+					/opt/homebrew/Cellar/glfw/3.3.7/include,
+					../Variant/vender/glad/include,
+					../Variant/vender/imgui,
+					../Variant/vender/glm,
+				);
+				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/glfw/3.3.7/lib,
+				);
+				PRODUCT_NAME = SandBox;
+				USER_HEADER_SEARCH_PATHS = "../Variant/Vender/spdlog/include ../Variant/src /opt/homebrew/Cellar/glfw/3.3.7/include ../Variant/vender/glad/include ../Variant/vender/imgui ../Variant/vender/glm";
+			};
+			name = Dist;
+		};
+		A7F5A5C7F06689F935055C07 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CONFIGURATION_BUILD_DIR = "../bin/Release-macosx-x86_64/SandBox";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_DYNAMIC_NO_PIC = NO;
+				HEADER_SEARCH_PATHS = (
+					../Variant/Vender/spdlog/include,
+					../Variant/src,
+					/opt/homebrew/Cellar/glfw/3.3.7/include,
+					../Variant/vender/glad/include,
+					../Variant/vender/imgui,
+					../Variant/vender/glm,
+				);
+				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/glfw/3.3.7/lib,
+				);
+				PRODUCT_NAME = SandBox;
+				USER_HEADER_SEARCH_PATHS = "../Variant/Vender/spdlog/include ../Variant/src /opt/homebrew/Cellar/glfw/3.3.7/include ../Variant/vender/glad/include ../Variant/vender/imgui ../Variant/vender/glm";
+			};
+			name = Release;
+		};
+		E187738D07ADA33F6EB499CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CONFIGURATION_BUILD_DIR = "../bin/Debug-macosx-x86_64/SandBox";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_DYNAMIC_NO_PIC = NO;
+				HEADER_SEARCH_PATHS = (
+					../Variant/Vender/spdlog/include,
+					../Variant/src,
+					/opt/homebrew/Cellar/glfw/3.3.7/include,
+					../Variant/vender/glad/include,
+					../Variant/vender/imgui,
+					../Variant/vender/glm,
+				);
+				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/glfw/3.3.7/lib,
+				);
+				PRODUCT_NAME = SandBox;
+				USER_HEADER_SEARCH_PATHS = "../Variant/Vender/spdlog/include ../Variant/src /opt/homebrew/Cellar/glfw/3.3.7/include ../Variant/vender/glad/include ../Variant/vender/imgui ../Variant/vender/glm";
+			};
+			name = Debug;
+		};
+		E9D4312B3C5A5C1D0E9EBF6B /* Dist */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++1z";
+				CONFIGURATION_BUILD_DIR = "$(SYMROOT)";
+				CONFIGURATION_TEMP_DIR = "$(OBJROOT)";
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = VR_DIST;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OBJROOT = "../bin/Dist-macosx-x86_64/SandBox";
+				ONLY_ACTIVE_ARCH = NO;
+				SYMROOT = "../bin/Dist-macosx-x86_64/SandBox";
+				USER_HEADER_SEARCH_PATHS = "../Variant/Vender/spdlog/include ../Variant/src ../Variant/Vender/GLFW/include ../Variant/vender/glad/include ../Variant/vender/imgui ../Variant/vender/glm";
+			};
+			name = Dist;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "SandBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D59F9BE00A582F01B764FFE /* Debug */,
+				10273B78B479D92AC6B221B8 /* Release */,
+				E9D4312B3C5A5C1D0E9EBF6B /* Dist */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		7FEDBC47D00150F9527F8287 /* Build configuration list for PBXNativeTarget "SandBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E187738D07ADA33F6EB499CD /* Debug */,
+				A7F5A5C7F06689F935055C07 /* Release */,
+				81EB973A7B5198AC6EECF57A /* Dist */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}

@@ -12,7 +12,7 @@ namespace Variant {
 	void OpenGLContext::init()
 	{
 		glfwMakeContextCurrent(m_window);
-		VR_ASSERT(gladLoadGLLoader((GLADloadproc)glfwGetProcAddress));
+		gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 
 		glfwSwapInterval(1);
 		VR_core_info("Window started!!");

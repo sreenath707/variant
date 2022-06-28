@@ -48,7 +48,7 @@ namespace Variant {
 		s_rendererData->indexBuffer->Bind();
 		s_rendererData->vertexArray->SetIndexBuffer(s_rendererData->indexBuffer);
 
-		s_rendererData->s_shader.reset(new shader("Assets/Shaders/shader.glsl"));
+		s_rendererData->s_shader.reset(new shader("/Users/sreenath707/Developer/projects/variant/SandBox/Assets/Shaders/shader.glsl"));
 
 		s_rendererData->whiteTexture.reset(new Texture(glm::vec4(1.0)));
 
@@ -57,7 +57,7 @@ namespace Variant {
 	{
 		delete s_rendererData;
 	}
-	void Renderer2D::BeginScene(OrthographicCamera& camera)
+	void Renderer2D::BeginScene(OrthographicCamera camera)
 	{
 		s_rendererData->s_shader->Bind();
 		s_rendererData->s_shader->uploadUniformMat4("u_viewProjection", camera.getProjectionView());

@@ -76,7 +76,7 @@ namespace Variant {
 
 	OpenGLVertexArray::OpenGLVertexArray()
 	{
-		glCreateVertexArrays(1, &m_rendererId);
+		glGenVertexArrays(1, &m_rendererId);
 	}
 
 	void OpenGLVertexArray::SetIndexBuffer(std::shared_ptr<indexBuffer>& Buffer)
