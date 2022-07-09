@@ -7,9 +7,9 @@ namespace Variant{
 	private:
 		static RendererAPI* s_rendererAPI;
 	public:
-		static void drawIndexed(std::shared_ptr<vertexArray> v_vertexArray)
+		static void drawIndexed(std::shared_ptr<vertexArray> v_vertexArray, int indexCount=0)
 		{
-			s_rendererAPI->drawIndexed(v_vertexArray);
+			s_rendererAPI->drawIndexed(v_vertexArray, indexCount);
 		}
 		static void setColor(glm::vec4 color)
 		{

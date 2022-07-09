@@ -61,7 +61,6 @@ namespace Variant {
 		}
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
         glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-
         // Should be true for macOS, according to GLFW docs, to get core profile.
         glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
         // According to Apple docs, non-core profiles are limited to version 2.1.

@@ -8,8 +8,10 @@ namespace Variant {
 		unsigned int m_rendererId;
 	public:
 		OpenGLVertexBuffer(void* vertices,unsigned int size);
+        OpenGLVertexBuffer(unsigned int size);
 		virtual void Bind()override;
 		virtual void unbind()override;
+        virtual void uploadData(void* data,unsigned int size)override;
 	};
 
 	class OpenGLIndexBuffer : public indexBuffer
