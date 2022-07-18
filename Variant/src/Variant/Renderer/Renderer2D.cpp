@@ -93,23 +93,25 @@ namespace Variant {
 		s_rendererData->s_shader->Bind();
 		s_rendererData->s_shader->uploadUniformMat4("u_viewProjection", camera.getProjectionView());
 	}
-	void Renderer2D::EndScene()
-	{
+    
+    void flush()
+    {
         s_rendererData->vertexBuffer->uploadData((void*)s_rendererData->BatchVertices,
                                                  s_rendererData->numberOfquards*4*sizeof(Vertex));
         RendererCommand::drawIndexed(s_rendererData->vertexArray, 6*s_rendererData->numberOfquards);
-        
+    }
+
+	void Renderer2D::EndScene()
+	{
+        flush();
+//        delete[] s_rendererData->BatchVertices;p
 	}
+    
+
 	void Renderer2D::DrawQuad(glm::vec3 position, glm::vec2 size,float rotation, glm::vec4 color)
 	{
 		s_rendererData->vertexArray->Bind();
 		s_rendererData->whiteTexture->Bind();
-        //        {
-        //            0.5f,0.5f,0.0f,   0.0,0.0,
-        //            -0.5f,0.5f,0.0f,  1.0,0.0,
-        //            -0.5f,-0.5f,0.0f, 1.0,1.0,
-        //             0.5f,-0.5f,0.0f, 0.0,1.0,
-        //        };
             s_rendererData->BatchVertices[s_rendererData->numberOfquards*4 +0] = {
                 {size.x*0.5+position.x, size.y*0.5+position.y,position.z},
                 {0,0},
@@ -131,14 +133,13 @@ namespace Variant {
                 color
             };
             s_rendererData->numberOfquards++;
-//		glm::mat4 transformMatrix = glm::translate(glm::mat4(1.0), position)
-//			* glm::rotate(glm::mat4(1.0), glm::radians(rotation), glm::vec3(0.0f,0.0f,1.0f))
-//			* glm::scale(glm::mat4(1.0), glm::vec3(size, 1.0));
-//		s_rendererData->s_shader->uploadUniformMat4("u_transform", transformMatrix);
-//		s_rendererData->s_shader->uploadUniformInt("u_texture", 0);
-//		s_rendererData->s_shader->uploadUniformVec4("u_color", color);
-
-		//RendererCommand::drawIndexed(s_rendererData->vertexArray);
+        if(s_rendererData->numberOfquards==s_rendererData->maxQuards)
+        {
+            flush();
+            s_rendererData->numberOfquards = 0;
+            delete[] s_rendererData->BatchVertices;
+            s_rendererData->BatchVertices = new Vertex[s_rendererData->maxVertices];
+        }
 	}
 	void Renderer2D::DrawTexture(glm::vec3 position, glm::vec2 size, float rotation, std::shared_ptr<Texture> texture)
 	{
