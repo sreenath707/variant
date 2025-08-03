@@ -31,7 +31,7 @@ public:
 	void OnImGuiRender()override
 	{
 		ImGui::Begin("Transform test");
-		ImGui::DockSpaceOverViewport();
+		//ImGui::DockSpaceOverViewport();
 		//ImGui::ShowDemoWindow();
 		ImGui::End();
 	}
