@@ -30,10 +30,10 @@ public:
 	}
 	void OnImGuiRender()override
 	{
-		ImGui::Begin("Transform test");
+		//ImGui::Begin("Transform test");
 		//ImGui::DockSpaceOverViewport();
 		//ImGui::ShowDemoWindow();
-		ImGui::End();
+		//ImGui::End();
 	}
 	void OnEvent(Variant::Event& event)
 	{
