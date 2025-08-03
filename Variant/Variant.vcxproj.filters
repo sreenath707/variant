@@ -918,7 +918,13 @@
     <ClInclude Include="src\Variant\Renderer\OrthographicCamera.h">
       <Filter>src\Variant\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Variant\Renderer\OrthographicCameraController.h">
+      <Filter>src\Variant\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Variant\Renderer\Renderer.h">
+      <Filter>src\Variant\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\Renderer\Renderer2D.h">
       <Filter>src\Variant\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Variant\Renderer\RendererAPI.h">
@@ -927,7 +933,13 @@
     <ClInclude Include="src\Variant\Renderer\RendererCommand.h">
       <Filter>src\Variant\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Variant\Renderer\Texture.h">
+      <Filter>src\Variant\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Variant\Renderer\shader.h">
+      <Filter>src\Variant\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Variant\Renderer\stb_image.h">
       <Filter>src\Variant\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Variant\Renderer\vertexArray.h">
@@ -972,10 +984,6 @@
     <ClInclude Include="src\vrpch.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Variant\Renderer\OrthographicCameraController.h" />
-    <ClInclude Include="src\Variant\Renderer\Renderer2D.h" />
-    <ClInclude Include="src\Variant\Renderer\Texture.h" />
-    <ClInclude Include="src\Variant\Renderer\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\OpenGL\OpenGLBuffer.cpp">
@@ -1005,13 +1013,22 @@
     <ClCompile Include="src\Variant\Renderer\OrthographicCamera.cpp">
       <Filter>src\Variant\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Variant\Renderer\OrthographicCameraController.cpp">
+      <Filter>src\Variant\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Variant\Renderer\Renderer.cpp">
+      <Filter>src\Variant\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Variant\Renderer\Renderer2D.cpp">
       <Filter>src\Variant\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Variant\Renderer\RendererAPI.cpp">
       <Filter>src\Variant\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Variant\Renderer\RendererCommand.cpp">
+      <Filter>src\Variant\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Variant\Renderer\Texture.cpp">
       <Filter>src\Variant\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Variant\Renderer\shader.cpp">
@@ -1038,8 +1055,5 @@
     <ClCompile Include="src\vrpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Variant\Renderer\OrthographicCameraController.cpp" />
-    <ClCompile Include="src\Variant\Renderer\Renderer2D.cpp" />
-    <ClCompile Include="src\Variant\Renderer\Texture.cpp" />
   </ItemGroup>
 </Project>

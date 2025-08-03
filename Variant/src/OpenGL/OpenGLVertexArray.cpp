@@ -94,14 +94,13 @@ namespace Variant {
 		auto& layout = Buffer->getLayout();
 		for (auto& element : layout)
 		{
-			glEnableVertexAttribArray(m_vertexBufferIndex);
 			glVertexAttribPointer(m_vertexBufferIndex,
 				getBufferCount(element.shaderType),
 				shaderTypeToGLType(element.shaderType),
 				element.normalized ? GL_TRUE : GL_FALSE,
 				layout.getStride(),
 				(const void*)element.offset);
-			
+			glEnableVertexAttribArray(m_vertexBufferIndex);
 			m_vertexBuffers.push_back(Buffer);
 			m_vertexBufferIndex++;
 		}
